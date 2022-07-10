@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------- define global colors and font sizes ------------------ */
+:root {
+}
+
+#list-root {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  padding: 1em;
+  max-width: 50%;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+.delete-button {
+  color: red;
+  cursor: pointer;
+}
