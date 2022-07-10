@@ -19,14 +19,17 @@ const deleteButton = () => {
 
 const createListItem = (itemName) => {
   // create and insert a new Shopping List Item at top of list
+  if (itemName == "") return;
+
   const newItem = document.createElement("li");
   newItem.classList = "list-item";
 
-  // create span for text and add
+  // create span for text and add to the LI
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(itemName));
   newItem.appendChild(textContent);
+
   // add the delete button
   newItem.appendChild(deleteButton());
 
