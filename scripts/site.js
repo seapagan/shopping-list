@@ -1,21 +1,7 @@
 import { testData } from "../data.js";
-
+import { deleteButton, checkButton } from "./buttons.js";
 const shoppingList = document.getElementById("list-root");
 const textInput = document.getElementById("text-input");
-
-const handleDelete = (e) => {
-  // delete the current item
-  e.target.parentElement.closest("li").remove();
-};
-
-const deleteButton = () => {
-  const button = document.createElement("span");
-  // button.appendChild(document.createTextNode("x"));
-  button.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
-  button.classList = "delete-button";
-  button.addEventListener("click", handleDelete);
-  return button;
-};
 
 const createListItem = (itemName) => {
   // create and insert a new Shopping List Item at top of list
@@ -29,6 +15,9 @@ const createListItem = (itemName) => {
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(itemName));
   newItem.appendChild(textContent);
+
+  // add the checked button at the start
+  newItem.prepend(checkButton());
 
   // add the delete button
   newItem.appendChild(deleteButton());

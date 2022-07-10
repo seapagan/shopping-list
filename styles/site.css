@@ -6,9 +6,21 @@
 
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
+  --list-item-bg: hsl(186, 80%, 98%);
+  --list-item-active: hsl(186, 80%, 95%);
+  --list-item-border: hsl(0, 0%, 90%);
+
+  --color-warning: hsl(0, 80%, 70%);
+
+  --item-open: hsla(0, 0%, 50%, 0.543);
+  --item-open-hover: hsla(120, 100%, 25%, 0.6);
+  --item-completed: hsl(120, 100%, 25%);
+  --item-completed-bg: hsla(0, 0%, 83%, 0.337);
+  --item-completed-color: gray;
 }
 
-#list-root {
+#list-root,
+#completed-root {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -21,13 +33,41 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
-  border: 1px solid black;
+  background-color: var(--list-item-bg);
+  border: 1px solid var(--list-item-border);
   padding: 0.5em;
   border-radius: 0.3em;
 }
 
 .delete-button {
-  color: red;
+  color: var(--color-warning);
   cursor: pointer;
+}
+
+.checked-button {
+  color: var(--item-open);
+}
+
+.item-completed {
+  color: vaR(--item-completed-color);
+  background-color: var(--item-completed-bg);
+}
+
+.item-completed span:first-of-type {
+  color: var(--item-completed);
+}
+
+/* move all hover styles here. If we don't do this, it will lead to issues on
+iOS and similar when an item is deleted - the hover styles will be applied to
+the remaining item that takes its index.
+*/
+@media (hover: hover) {
+  .checked-button:not(.item-completed):hover {
+    color: var(--item-open-hover);
+  }
+
+  .list-item:hover,
+  .list-item:active {
+    background-color: var(--list-item-active);
+  }
 }

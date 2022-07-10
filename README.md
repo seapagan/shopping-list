@@ -14,15 +14,17 @@ Currently the list is pre-seeded with 5 items to aid development.
 
 - Add a new List Item
 - Delete an existing List Item
+- Toggle an item as done. If toggled, it is moved to a different list below. If
+  toggled again, it is moved back to the main list.
 
 ## Functionality Planned
 
-- Check off an item as done.
 - disallow duplicate items
 - Allow quantity. If blank just add 1. Optionally select 'type' of quantity (ie
   pack, box, pallet etc).
 - Edit an item.
 - Add comment to an item.
+- add item to category - ie Fresh, Frozen, Bakery etc.
 - Move done items to the end of the list and grey them out.
 - Drag and drop ordering.
 - Store items using Firebase or similar noSQL system.
