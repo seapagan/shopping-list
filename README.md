@@ -25,7 +25,6 @@ Currently the list is pre-seeded with 5 items to aid development.
 - Edit an item.
 - Add comment to an item.
 - add item to category - ie Fresh, Frozen, Bakery etc.
-- Move done items to the end of the list and grey them out.
 - Drag and drop ordering.
 - Store items using Firebase or similar noSQL system.
 - Copy data to LocalStorage in case WiFi or cell coverage is interrupted.
