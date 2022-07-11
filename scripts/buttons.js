@@ -93,12 +93,14 @@ const handleApplyEdit = (e) => {
 };
 
 const handleEnterPressedOnEdit = (e) => {
-  console.log(e.target.value);
-
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(e.target.value));
 
+  const acceptButton = e.target.parentElement
+    .closest("div")
+    .nextSibling.getElementsByClassName("edit-accept")[0];
+  acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
 };
 
