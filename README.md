@@ -8,7 +8,8 @@ This application is to teach myself "plain" JavaScript as opposed to using a
 library like `React` or similar. Also, I always forget to take my shopping list
 with me, but never forget my phone!!
 
-Currently the list is pre-seeded with 5 items to aid development.
+For development purposes, you can pre-seed the list with 5 items by adding an
+item 'test' to the list.
 
 ## Functionality that is Working
 
