@@ -1,4 +1,4 @@
-import { testData } from "../data.js";
+import { testData } from "../test-data.js";
 import { deleteButton, checkButton, editButton } from "./buttons.js";
 
 const shoppingList = document.getElementById("list-root");
