@@ -19,7 +19,7 @@
   --item-completed-color: gray;
 
   font-family: "Oxygen", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 body {
@@ -95,6 +95,12 @@ footer {
   border: 1px solid var(--list-item-border);
   padding: 0.5em;
   border-radius: 0.3em;
+}
+
+.button-bar {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
 }
 
 .list-item-main {
