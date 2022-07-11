@@ -1,5 +1,6 @@
 import { testData } from "../data.js";
 import { deleteButton, checkButton, editButton } from "./buttons.js";
+
 const shoppingList = document.getElementById("list-root");
 const textInput = document.getElementById("text-input");
 
@@ -16,28 +17,25 @@ const createListItem = (itemName) => {
   const newItem = document.createElement("li");
   newItem.classList = "list-item";
 
-  // create container for the check and text
-  const newElement = document.createElement("span");
-  newElement.className = "list-item-main";
+  // create element for the check and text
+  const checkAndTextElement = document.createElement("div");
+  checkAndTextElement.className = "list-item-main";
 
-  // create span for text and add to the LI
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(itemName));
-  newItem.appendChild(textContent);
 
-  // add the checked button at the start
-  newElement.append(checkButton());
-  newElement.append(textContent);
+  checkAndTextElement.append(checkButton());
+  checkAndTextElement.append(textContent);
 
-  newItem.append(newElement);
-
+  // create the button bar
   const buttonBar = document.createElement("div");
   buttonBar.className = "button-bar";
-
   buttonBar.append(editButton());
   buttonBar.appendChild(deleteButton());
 
+  // add both to the new item element
+  newItem.append(checkAndTextElement);
   newItem.append(buttonBar);
 
   // add the new item to the top of the list
