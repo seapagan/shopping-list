@@ -38,3 +38,15 @@ export const checkButton = () => {
 
   return button;
 };
+
+/* -------------------------------------------------------------------------- */
+/*                               The Edit button                              */
+/* -------------------------------------------------------------------------- */
+
+export const editButton = () => {
+  const button = document.createElement("span");
+  button.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+  button.classList = "edit-button";
+
+  return button;
+};

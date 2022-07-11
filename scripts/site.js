@@ -1,5 +1,5 @@
 import { testData } from "../data.js";
-import { deleteButton, checkButton } from "./buttons.js";
+import { deleteButton, checkButton, editButton } from "./buttons.js";
 const shoppingList = document.getElementById("list-root");
 const textInput = document.getElementById("text-input");
 
@@ -26,8 +26,13 @@ const createListItem = (itemName) => {
 
   newItem.append(newElement);
 
-  // add the delete button
-  newItem.appendChild(deleteButton());
+  const buttonBar = document.createElement("div");
+  buttonBar.className = "button-bar";
+
+  buttonBar.append(editButton());
+  buttonBar.appendChild(deleteButton());
+
+  newItem.append(buttonBar);
 
   // add the new item to the top of the list
   shoppingList.prepend(newItem);
