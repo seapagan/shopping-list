@@ -3,25 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1"
+    />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles/site.css" />
     <script
       src="https://kit.fontawesome.com/c0e20e980e.js"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="scripts/site.js" defer></script>
     <title>Shopping List</title>
   </head>
   <body>
     <main>
-      <h1>Shopping List</h1>
-      <form>
-        <input id="text-input" type="text" />
-        <button id="add-item" type="submit">Add</button>
+      <h1 class="title">Shopping List</h1>
+      <form class="input-form">
+        <input id="text-input" type="text" placeholder="Add Item" />
+        <button id="add-item" type="submit">
+          <i class="fa-solid fa-plus-large"></i>
+        </button>
       </form>
       <ul id="list-root"></ul>
       <ul id="completed-root"></ul>
     </main>
+    <script type="module" src="scripts/site.js"></script>
   </body>
+  <footer>&copy; Grant Ramsay 2022</footer>
 </html>

@@ -17,6 +17,65 @@
   --item-completed: hsl(120, 100%, 25%);
   --item-completed-bg: hsla(0, 0%, 83%, 0.337);
   --item-completed-color: gray;
+
+  font-size: 16px;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  color: hsl(0, 0%, 50%);
+  flex-shrink: 0;
+}
+
+.title {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  text-align: center;
+  column-gap: 0.5em;
+  margin: 0 auto;
+}
+
+.input-form #text-input {
+  width: 100%;
+  outline: none;
+  padding: 0.4em;
+  border-radius: 0.5em;
+  font-size: 16px;
+}
+
+.input-form #add-item {
+  height: max-content;
+  align-self: center;
+  cursor: pointer;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: hsl(0, 0%, 94%);
+  color: black;
+  padding: 0.5em;
 }
 
 #list-root,
@@ -24,9 +83,8 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  row-gap: 0.5em;
+  row-gap: 0.3em;
   padding: 1em;
-  max-width: 50%;
 }
 
 .list-item {
@@ -46,6 +104,7 @@
 
 .checked-button {
   color: var(--item-open);
+  cursor: pointer;
 }
 
 .item-completed {
