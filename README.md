@@ -22,13 +22,13 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Delete an existing List Item
 - Toggle an item as done. If toggled, it is moved to a different list below. If
   toggled again, it is moved back to the main list.
+- Edit an item name inline.
 
 ## Functionality Planned
 
 - disallow duplicate items
 - Allow quantity. If blank just add 1. Optionally select 'type' of quantity (ie
   pack, box, pallet etc).
-- Edit an item.
 - Add comment to an item.
 - add item to category - ie Fresh, Frozen, Bakery etc.
 - Drag and drop ordering.
