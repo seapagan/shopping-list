@@ -18,6 +18,8 @@
   --item-completed-bg: hsla(0, 0%, 83%, 0.337);
   --item-completed-color: gray;
 
+  --edit-item-bg: hsl(0, 78%, 93%);
+
   font-family: "Oxygen", sans-serif;
   font-size: 20px;
 }
@@ -25,12 +27,6 @@
 body {
   min-width: 320px;
 }
-
-/* body {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5em;
-} */
 
 main {
   flex: 1 0 auto;
@@ -128,6 +124,32 @@ footer {
 
 .item-completed .checked-button {
   color: var(--item-completed);
+}
+
+.edit-button {
+  cursor: pointer;
+}
+
+/* .edit-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  background-color: var(--edit-item-bg);
+  border: 1px solid var(--list-item-border);
+} */
+
+.edit-input {
+  padding: 0.2em;
+  border-radius: 0.3em;
+  font-size: 18px;
+  border: 1px solid var(--list-item-border);
+  /* max-width: 180px; */
+  width: 100%;
+  margin-right: 1em;
 }
 
 /* move all hover styles here. If we don't do this, it will lead to issues on
