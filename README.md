@@ -11,6 +11,8 @@ with me, but never forget my phone!!
 For development purposes, you can pre-seed the list with 5 items by adding an
 item 'test' to the list.
 
+![](images/screenshot.png)
+
 ## Functionality that is Working
 
 - Add a new List Item
