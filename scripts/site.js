@@ -7,6 +7,12 @@ const createListItem = (itemName) => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") return;
 
+  if (itemName.trim().toLowerCase() == "test") {
+    // add test data to the list during development...
+    testData.forEach((item) => createListItem(item));
+    return;
+  }
+
   const newItem = document.createElement("li");
   newItem.classList = "list-item";
 
@@ -46,6 +52,3 @@ const handleSubmit = (e) => {
 };
 
 document.getElementById("add-item").addEventListener("click", handleSubmit);
-
-// add test data to the list during development...
-testData.forEach((item) => createListItem(item));
