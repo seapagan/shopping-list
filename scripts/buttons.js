@@ -20,7 +20,7 @@ export const deleteButton = () => {
 /* -------------------------------------------------------------------------- */
 const handleChecked = (e) => {
   const check = e.target.parentElement.closest("span");
-  const listItem = check.parentElement;
+  const listItem = check.parentElement.closest("li");
 
   listItem.classList.toggle("item-completed");
   if (listItem.classList.contains("item-completed")) {

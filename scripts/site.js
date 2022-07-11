@@ -10,6 +10,10 @@ const createListItem = (itemName) => {
   const newItem = document.createElement("li");
   newItem.classList = "list-item";
 
+  // create container for the check and text
+  const newElement = document.createElement("span");
+  newElement.className = "list-item-main";
+
   // create span for text and add to the LI
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
@@ -17,7 +21,10 @@ const createListItem = (itemName) => {
   newItem.appendChild(textContent);
 
   // add the checked button at the start
-  newItem.prepend(checkButton());
+  newElement.append(checkButton());
+  newElement.append(textContent);
+
+  newItem.append(newElement);
 
   // add the delete button
   newItem.appendChild(deleteButton());

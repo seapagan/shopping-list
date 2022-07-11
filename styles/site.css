@@ -22,16 +22,15 @@
   font-size: 16px;
 }
 
-html,
 body {
-  min-height: 100vh;
+  min-width: 320px;
 }
 
-body {
+/* body {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
-}
+} */
 
 main {
   flex: 1 0 auto;
@@ -98,6 +97,14 @@ footer {
   border-radius: 0.3em;
 }
 
+.list-item-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
 .delete-button {
   color: var(--color-warning);
   cursor: pointer;
@@ -113,7 +120,7 @@ footer {
   background-color: var(--item-completed-bg);
 }
 
-.item-completed span:first-of-type {
+.item-completed .checked-button {
   color: var(--item-completed);
 }
 
@@ -129,5 +136,14 @@ the remaining item that takes its index.
   .list-item:hover,
   .list-item:active {
     background-color: var(--list-item-active);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
