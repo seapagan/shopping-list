@@ -42,23 +42,6 @@ export const checkButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                               The Edit button                              */
 /* -------------------------------------------------------------------------- */
-
-// const createEditForm = (itemName) => {
-//   const editForm = document.createElement("form");
-//   editForm.className = "edit-form";
-//   const editField = document.createElement("input");
-//   editField.className = "edit-field";
-//   editField.value = itemName;
-//   const editSubmit = document.createElement("button");
-//   editSubmit.innerText = "OK";
-//   editSubmit.className = "edit-submit";
-
-//   editForm.append(editField);
-//   editForm.append(editSubmit);
-
-//   return editForm;
-// };
-
 const handleEdit = (e) => {
   const itemText = e.target.parentElement
     .closest("div")
@@ -70,6 +53,11 @@ const handleEdit = (e) => {
   const inputField = document.createElement("input");
   inputField.value = itemText.innerText;
   inputField.className = "edit-input";
+  inputField.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      handleEnterPressedOnEdit(e);
+    }
+  });
   editButton.replaceWith(applyEditButton());
   itemText.replaceWith(inputField);
   inputField.focus();
@@ -85,9 +73,8 @@ export const editButton = () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                      Button to submit edited item name                     */
+/*                             Edit submit button                             */
 /* -------------------------------------------------------------------------- */
-
 const handleApplyEdit = (e) => {
   const acceptButton = e.target.parentElement.closest(".edit-accept");
 
@@ -105,7 +92,17 @@ const handleApplyEdit = (e) => {
   acceptButton.replaceWith(editButton());
 };
 
-export const applyEditButton = () => {
+const handleEnterPressedOnEdit = (e) => {
+  console.log(e.target.value);
+
+  const textContent = document.createElement("span");
+  textContent.classList = "item-text";
+  textContent.appendChild(document.createTextNode(e.target.value));
+
+  e.target.replaceWith(textContent);
+};
+
+const applyEditButton = () => {
   const button = document.createElement("span");
   button.innerHTML = '<i class="fa-regular fa-check"></i>';
   button.className = "edit-accept";

@@ -150,6 +150,9 @@ footer {
   /* max-width: 180px; */
   width: 100%;
   margin-right: 1em;
+  /* outline: 1px solid green; */
+  outline: none;
+  box-shadow: 0 0 3px #ddd;
 }
 
 /* move all hover styles here. If we don't do this, it will lead to issues on
