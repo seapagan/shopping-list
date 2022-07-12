@@ -22,6 +22,8 @@ const handleChecked = (e) => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
+  if (document.querySelector(".edit-input")) return;
+
   listItem.classList.toggle("item-completed");
   if (listItem.classList.contains("item-completed")) {
     document.getElementById("completed-root").prepend(listItem);
