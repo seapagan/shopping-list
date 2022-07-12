@@ -1,14 +1,16 @@
+import { getStoredList, updateStoredList } from "./storage.js";
+
 /* -------------------------------------------------------------------------- */
 /*                              The Delete button                             */
 /* -------------------------------------------------------------------------- */
-const handleDelete = (e) => {
+const handleDelete = e => {
   // delete the current item
   e.target.parentElement.closest("li").remove();
 };
 
 export const deleteButton = () => {
   const button = document.createElement("span");
-  button.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+  button.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
   button.classList = "delete-button";
   button.addEventListener("click", handleDelete);
 
@@ -18,7 +20,7 @@ export const deleteButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                           The Check (done) button                          */
 /* -------------------------------------------------------------------------- */
-const handleChecked = (e) => {
+const handleChecked = e => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
@@ -34,7 +36,7 @@ const handleChecked = (e) => {
 
 export const checkButton = () => {
   const button = document.createElement("span");
-  button.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  button.innerHTML = "<i class='fa-solid fa-circle-check'></i>";
   button.classList = "checked-button";
   button.addEventListener("click", handleChecked);
 
@@ -44,13 +46,11 @@ export const checkButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                               The Edit button                              */
 /* -------------------------------------------------------------------------- */
-const handleEdit = (e) => {
+const handleEdit = e => {
   const itemText = e.target.parentElement
     .closest("div")
     .previousElementSibling.querySelector(".item-text");
   const editButton = e.target.parentElement.closest(".edit-button");
-
-  const originalNode = itemText.cloneNode(true);
 
   const inputField = document.createElement("input");
   inputField.value = itemText.innerText;
@@ -67,7 +67,7 @@ const handleEdit = (e) => {
 
 export const editButton = () => {
   const button = document.createElement("span");
-  button.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+  button.innerHTML = "<i class='fa-regular fa-pen-to-square'></i>";
   button.classList = "edit-button";
   button.addEventListener("click", handleEdit);
 
@@ -77,7 +77,7 @@ export const editButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                             Edit submit button                             */
 /* -------------------------------------------------------------------------- */
-const handleApplyEdit = (e) => {
+const handleApplyEdit = e => {
   const acceptButton = e.target.parentElement.closest(".edit-accept");
 
   const editField = e.target.parentElement
@@ -94,7 +94,7 @@ const handleApplyEdit = (e) => {
   acceptButton.replaceWith(editButton());
 };
 
-const handleEnterPressedOnEdit = (e) => {
+const handleEnterPressedOnEdit = e => {
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(e.target.value));
@@ -108,7 +108,7 @@ const handleEnterPressedOnEdit = (e) => {
 
 const applyEditButton = () => {
   const button = document.createElement("span");
-  button.innerHTML = '<i class="fa-regular fa-check"></i>';
+  button.innerHTML = "<i class='fa-regular fa-check'></i>";
   button.className = "edit-accept";
   button.addEventListener("click", handleApplyEdit);
 

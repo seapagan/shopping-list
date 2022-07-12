@@ -1,16 +1,18 @@
 import { testData } from "../test-data.js";
-import { deleteButton, checkButton, editButton } from "./buttons.js";
+
+import { checkButton, deleteButton, editButton } from "./buttons.js";
+import { getStoredList, updateStoredList } from "./storage.js";
 
 const shoppingList = document.getElementById("list-root");
 const textInput = document.getElementById("text-input");
 
-const createListItem = (itemName) => {
+const createListItem = itemName => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") return;
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
-    testData.forEach((item) => createListItem(item));
+    testData.forEach(item => createListItem(item));
     return;
   }
 
@@ -44,7 +46,7 @@ const createListItem = (itemName) => {
   textInput.value = "";
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = e => {
   e.preventDefault();
   createListItem(textInput.value);
 };
