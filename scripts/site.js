@@ -40,10 +40,12 @@ const createListItem = itemName => {
   newItem.append(checkAndTextElement);
   newItem.append(buttonBar);
 
-  // add the new item to the top of the list
+  // add the new item to the list
   shoppingList.prepend(newItem);
+
   // clear the input field
   textInput.value = "";
+  updateStoredList();
 };
 
 const handleSubmit = e => {
@@ -52,3 +54,13 @@ const handleSubmit = e => {
 };
 
 document.getElementById("add-item").addEventListener("click", handleSubmit);
+
+// restore previous list from localstorage
+const storedItems = getStoredList();
+if (storedItems && storedItems.length !== 0) {
+  Object.keys(storedItems)
+    .reverse()
+    .forEach(item => {
+      createListItem(storedItems[item].name);
+    });
+}

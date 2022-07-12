@@ -6,6 +6,7 @@ import { getStoredList, updateStoredList } from "./storage.js";
 const handleDelete = e => {
   // delete the current item
   e.target.parentElement.closest("li").remove();
+  updateStoredList();
 };
 
 export const deleteButton = () => {
@@ -63,6 +64,7 @@ const handleEdit = e => {
   editButton.replaceWith(applyEditButton());
   itemText.replaceWith(inputField);
   inputField.focus();
+  updateStoredList();
 };
 
 export const editButton = () => {
@@ -104,6 +106,7 @@ const handleEnterPressedOnEdit = e => {
     .nextSibling.getElementsByClassName("edit-accept")[0];
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
+  updateStoredList();
 };
 
 const applyEditButton = () => {
