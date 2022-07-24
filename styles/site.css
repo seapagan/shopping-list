@@ -6,6 +6,8 @@
 
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
+  --general-border: hsl(200, 50%, 70%);
+
   --list-item-bg: hsl(186, 80%, 98%);
   --list-item-active: hsl(186, 80%, 95%);
   --list-item-border: hsl(0, 0%, 90%);
@@ -54,11 +56,14 @@ footer {
 }
 
 .input-form #text-input {
+  appearance: none;
   width: 100%;
   outline: none;
   padding: 0.4em;
   border-radius: 0.5em;
   font-size: 1rem;
+  border: 1px solid var(--general-border);
+  box-shadow: 0px 10px 13px -7px #000000;
 }
 
 .input-form #add-item {
@@ -69,6 +74,7 @@ footer {
   background-color: hsl(0, 0%, 94%);
   color: black;
   padding: 0.5em;
+  box-shadow: 0px 10px 13px -7px #000000;
 }
 
 #list-root,
@@ -144,7 +150,8 @@ fieldset {
   display: none;
   margin: 0.3em 1em;
   border-radius: 0.5em;
-  /* box-shadow: 0px 10px 13px -7px #000000; */
+  border: 1px solid var(--general-border);
+  box-shadow: 0px 10px 13px -7px #000000;
 }
 
 legend {
