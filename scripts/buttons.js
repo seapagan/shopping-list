@@ -1,4 +1,4 @@
-import { getStoredList, updateStoredList } from "./storage.js";
+import { updateStoredList } from "./storage.js";
 
 /* -------------------------------------------------------------------------- */
 /*                              The Delete button                             */
@@ -33,6 +33,7 @@ const handleChecked = e => {
   } else {
     document.getElementById("list-root").prepend(listItem);
   }
+  updateStoredList();
 };
 
 export const checkButton = () => {

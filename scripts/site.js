@@ -3,10 +3,11 @@ import { testData } from "../test-data.js";
 import { checkButton, deleteButton, editButton } from "./buttons.js";
 import { getStoredList, updateStoredList } from "./storage.js";
 
-const shoppingList = document.getElementById("list-root");
+const unboughtList = document.getElementById("list-root");
+const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 
-const createListItem = itemName => {
+const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") return;
 
@@ -41,7 +42,12 @@ const createListItem = itemName => {
   newItem.append(buttonBar);
 
   // add the new item to the list
-  shoppingList.prepend(newItem);
+  if (isBought) {
+    newItem.classList.add("item-completed");
+    boughtList.prepend(newItem);
+  } else {
+    unboughtList.prepend(newItem);
+  }
 
   // clear the input field
   textInput.value = "";
@@ -56,11 +62,14 @@ const handleSubmit = e => {
 document.getElementById("add-item").addEventListener("click", handleSubmit);
 
 // restore previous list from localstorage
-const storedItems = getStoredList();
-if (storedItems && storedItems.length !== 0) {
-  Object.keys(storedItems)
-    .reverse()
-    .forEach(item => {
-      createListItem(storedItems[item].name);
-    });
-}
+const populateList = data => {
+  if (data && data.length !== 0) {
+    Object.keys(data)
+      .reverse()
+      .forEach(item => {
+        createListItem(data[item].name, data[item].bought);
+      });
+  }
+};
+
+getStoredList().forEach(data => populateList(data));

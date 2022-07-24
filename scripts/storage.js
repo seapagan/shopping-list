@@ -1,15 +1,30 @@
 // assorted functions to take care of localstorage.
-const getAllItemsList = () => document.querySelectorAll("li.list-item");
+const getAllItemsList = () => {
+  // return document.querySelectorAll(".list-item");
+  const toBuy = document
+    .getElementById("list-root")
+    .querySelectorAll(".list-item");
+  const bought = document
+    .getElementById("completed-root")
+    .querySelectorAll(".list-item");
+  return [toBuy, bought];
+};
 
 const getListData = () => {
-  const listItemsList = getAllItemsList();
-  const listData = {};
+  const [toBuy, bought] = getAllItemsList();
 
-  listItemsList.forEach((item, index) => {
+  const toBuyList = {};
+  const boughtList = {};
+
+  toBuy.forEach((item, index) => {
     const itemName = item.querySelector(".item-text").innerText;
-    listData[index] = { name: itemName };
+    toBuyList[index] = { name: itemName, bought: false };
   });
-  return listData;
+  bought.forEach((item, index) => {
+    const itemName = item.querySelector(".item-text").innerText;
+    boughtList[index] = { name: itemName, bought: true };
+  });
+  return [toBuyList, boughtList];
 };
 
 export const updateStoredList = () =>
