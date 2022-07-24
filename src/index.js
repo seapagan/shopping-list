@@ -1,5 +1,5 @@
-import { checkButton, deleteButton, editButton } from "./buttons.js";
-import { getStoredList, updateStoredList } from "./storage.js";
+import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
+import { getStoredList, updateStoredList } from "./modules/storage.js";
 import { testData } from "./test-data.js";
 
 import "./styles/site.css";
