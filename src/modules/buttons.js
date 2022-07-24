@@ -66,7 +66,6 @@ const handleEdit = e => {
   editButton.replaceWith(applyEditButton());
   itemText.replaceWith(inputField);
   inputField.focus();
-  updateStoredList();
 };
 
 export const editButton = () => {
@@ -95,6 +94,8 @@ const handleApplyEdit = e => {
   textContent.appendChild(document.createTextNode(editField.value));
 
   editField.replaceWith(textContent);
+
+  updateStoredList();
 
   // now replace the apply button with an edit button for next time
   acceptButton.replaceWith(editButton());
