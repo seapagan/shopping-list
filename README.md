@@ -1,5 +1,8 @@
 # Shopping List App
 
+[![CodeQL](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml) [![Dependency
+Review](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml) [![pages-build-deployment](https://github.com/seapagan/shopping-list/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/pages/pages-build-deployment)
+
 A web-based Shopping List written in plain-vanilla JavaScript. Currently this is
 in a seriously pre-alpha stage, with almost no styling or attempt to make it
 look good!
