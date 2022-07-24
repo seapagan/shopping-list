@@ -58,12 +58,12 @@ footer {
   outline: none;
   padding: 0.4em;
   border-radius: 0.5em;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .input-form #add-item {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
   border-radius: 0.5em;
   background-color: hsl(0, 0%, 94%);

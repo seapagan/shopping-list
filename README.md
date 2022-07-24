@@ -49,7 +49,6 @@ I'll look at replacing this with a free solution when the app is completed.**
 
 ## Other TODO
 
-- style the individual list areas better, so its obvious which is which.
 - `Escape` key to cancel editing List, perhaps also `blur` event which is better
   for mobile.
 - possibly replace LocalStorage with IndexedDB to allow async. Probably won't
