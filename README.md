@@ -27,15 +27,28 @@ I'll look at replacing this with a free solution when the app is completed.**
 
 ## Functionality Planned
 
-- disallow duplicate items
+- Disallow duplicate items.
 - Allow quantity. If blank just add 1. Optionally select 'type' of quantity (ie
   pack, box, pallet etc).
 - Add comment to an item.
 - add item to category - ie Fresh, Frozen, Bakery etc.
 - Drag and drop ordering.
+- implement User login system, each with their own list(s) - use Firebase Auth
+  for this? (that would enable login with google/facebook etc.)
 - Store items using Firebase or similar noSQL system.
 - Group items by Shop.
 - Remember previous items and shops for later input.
 - Save the entire list as a favourite, ability to load from saved favourites
   overwriting any current list.
 - Fully responsive design.
+- add a toaster-notification system for add/complete/delete/errors etc. Try
+  write from scratch.
+
+## Other TODO
+
+- style the individual list areas better, so its obvious which is which.
+- `Escape` key to cancel editing List, perhaps also `blur` event which is better
+  for mobile.
+- possibly replace LocalStorage with IndexedDB to allow async. Probably won't
+  speed up this app much but would be a decent learning experience.
+- implement accordian drop-downs for each list.
