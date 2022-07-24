@@ -5,7 +5,7 @@
   "homepage": "https://www.gnramsay.com/",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.14.0",
+    "eslint": "^8.20.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "sass": "^1.50.1"
