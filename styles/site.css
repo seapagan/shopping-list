@@ -126,7 +126,8 @@ footer {
   color: var(--item-completed);
 }
 
-.edit-button {
+.edit-button,
+.edit-accept {
   cursor: pointer;
 }
 

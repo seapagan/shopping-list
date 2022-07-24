@@ -88,6 +88,8 @@ const handleApplyEdit = e => {
     .closest("div")
     .previousElementSibling.querySelector(".edit-input");
 
+  if (editField.value === "") return;
+
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(editField.value));
@@ -99,6 +101,8 @@ const handleApplyEdit = e => {
 };
 
 const handleEnterPressedOnEdit = e => {
+  if (e.target.value === "") return;
+
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
   textContent.appendChild(document.createTextNode(e.target.value));
