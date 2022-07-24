@@ -144,6 +144,7 @@ footer {
 }
 
 fieldset {
+  display: none;
   margin: 1em;
   border-radius: 0.5em;
 }
