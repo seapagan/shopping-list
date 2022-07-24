@@ -57,7 +57,8 @@ I'll look at replacing this with a free solution when the app is completed.**
 ## Development
 
 Development needs [Node.JS](https://nodejs.org/) to be installed and optionally
-[yarn](https://yarnpkg.com/)
+[yarn](https://yarnpkg.com/). **These are NOT needed for production once the
+optimized bundle is created.**
 
 1) Fork or Checkout this repository then change into that directory.
 2) Install dependencies using `npm install` or `yarn install`
