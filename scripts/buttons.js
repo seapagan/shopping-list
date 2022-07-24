@@ -25,6 +25,7 @@ const handleChecked = e => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
+  // dont allow check if we are also editing this item
   if (document.querySelector(".edit-input")) return;
 
   listItem.classList.toggle("item-completed");

@@ -1,13 +1,10 @@
-// assorted functions to take care of localstorage.
+// assorted functions to take care of read/save from localstorage.
+const getListByAnchor = id => {
+  return document.getElementById(id).querySelectorAll(".list-item");
+};
+
 const getAllItemsList = () => {
-  // return document.querySelectorAll(".list-item");
-  const toBuy = document
-    .getElementById("list-root")
-    .querySelectorAll(".list-item");
-  const bought = document
-    .getElementById("completed-root")
-    .querySelectorAll(".list-item");
-  return [toBuy, bought];
+  return [getListByAnchor("list-root"), getListByAnchor("completed-root")];
 };
 
 const getListData = () => {

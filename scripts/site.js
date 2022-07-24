@@ -61,7 +61,9 @@ const handleSubmit = e => {
 
 document.getElementById("add-item").addEventListener("click", handleSubmit);
 
-// restore previous list from localstorage
+/* -------------------------------------------------------------------------- */
+/*             restore previous list from localstorage on refresh             */
+/* -------------------------------------------------------------------------- */
 const populateList = data => {
   if (data && data.length !== 0) {
     Object.keys(data)
