@@ -23,6 +23,7 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Toggle an item as done. If toggled, it is moved to a different list below. If
   toggled again, it is moved back to the main list.
 - Edit an item name inline.
+- Save current items to LocalStorage so they persist between sessions.
 
 ## Functionality Planned
 
@@ -33,7 +34,6 @@ I'll look at replacing this with a free solution when the app is completed.**
 - add item to category - ie Fresh, Frozen, Bakery etc.
 - Drag and drop ordering.
 - Store items using Firebase or similar noSQL system.
-- Copy data to LocalStorage in case WiFi or cell coverage is interrupted.
 - Group items by Shop.
 - Remember previous items and shops for later input.
 - Save the entire list as a favourite, ability to load from saved favourites

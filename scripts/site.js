@@ -3,16 +3,17 @@ import { testData } from "../test-data.js";
 import { checkButton, deleteButton, editButton } from "./buttons.js";
 import { getStoredList, updateStoredList } from "./storage.js";
 
-const shoppingList = document.getElementById("list-root");
+const unboughtList = document.getElementById("list-root");
+const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 
-const createListItem = itemName => {
+const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") return;
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
-    testData.forEach(item => createListItem(item));
+    testData.reverse().forEach(item => createListItem(item));
     return;
   }
 
@@ -40,10 +41,17 @@ const createListItem = itemName => {
   newItem.append(checkAndTextElement);
   newItem.append(buttonBar);
 
-  // add the new item to the top of the list
-  shoppingList.prepend(newItem);
+  // add the new item to the list
+  if (isBought) {
+    newItem.classList.add("item-completed");
+    boughtList.prepend(newItem);
+  } else {
+    unboughtList.prepend(newItem);
+  }
+
   // clear the input field
   textInput.value = "";
+  updateStoredList();
 };
 
 const handleSubmit = e => {
@@ -52,3 +60,18 @@ const handleSubmit = e => {
 };
 
 document.getElementById("add-item").addEventListener("click", handleSubmit);
+
+/* -------------------------------------------------------------------------- */
+/*             restore previous list from localstorage on refresh             */
+/* -------------------------------------------------------------------------- */
+const populateList = data => {
+  if (data && data.length !== 0) {
+    Object.keys(data)
+      .reverse()
+      .forEach(item => {
+        createListItem(data[item].name, data[item].bought);
+      });
+  }
+};
+
+getStoredList().forEach(data => populateList(data));

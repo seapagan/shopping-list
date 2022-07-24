@@ -1,4 +1,4 @@
-import { getStoredList, updateStoredList } from "./storage.js";
+import { updateStoredList } from "./storage.js";
 
 /* -------------------------------------------------------------------------- */
 /*                              The Delete button                             */
@@ -6,6 +6,7 @@ import { getStoredList, updateStoredList } from "./storage.js";
 const handleDelete = e => {
   // delete the current item
   e.target.parentElement.closest("li").remove();
+  updateStoredList();
 };
 
 export const deleteButton = () => {
@@ -24,6 +25,7 @@ const handleChecked = e => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
+  // dont allow check if we are also editing this item
   if (document.querySelector(".edit-input")) return;
 
   listItem.classList.toggle("item-completed");
@@ -32,6 +34,7 @@ const handleChecked = e => {
   } else {
     document.getElementById("list-root").prepend(listItem);
   }
+  updateStoredList();
 };
 
 export const checkButton = () => {
@@ -63,6 +66,7 @@ const handleEdit = e => {
   editButton.replaceWith(applyEditButton());
   itemText.replaceWith(inputField);
   inputField.focus();
+  updateStoredList();
 };
 
 export const editButton = () => {
@@ -104,6 +108,7 @@ const handleEnterPressedOnEdit = e => {
     .nextSibling.getElementsByClassName("edit-accept")[0];
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
+  updateStoredList();
 };
 
 const applyEditButton = () => {
