@@ -81,6 +81,7 @@ footer {
   flex-direction: column;
   row-gap: 0.3em;
   padding: 1em;
+  padding-top: 0.3em;
 }
 
 .list-item {
@@ -142,6 +143,18 @@ footer {
   box-shadow: 0 0 3px #ddd;
 }
 
+fieldset {
+  display: none;
+  margin: 1em;
+  border-radius: 0.5em;
+}
+
+legend {
+  margin: 0 auto;
+  padding: 0.5em;
+  font-weight: 600;
+}
+
 /* move all hover styles here. If we don't do this, it will lead to issues on
 iOS and similar when an item is deleted - the hover styles will be applied to
 the remaining item that takes its index.
@@ -159,8 +172,6 @@ the remaining item that takes its index.
 
 @media screen and (min-width: 600px) {
   body {
-    display: flex;
-    flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
   }

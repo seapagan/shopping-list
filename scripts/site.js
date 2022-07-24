@@ -62,6 +62,27 @@ const handleSubmit = e => {
 document.getElementById("add-item").addEventListener("click", handleSubmit);
 
 /* -------------------------------------------------------------------------- */
+/*        set up a MutationObserver to hide/show the individual lists.        */
+/* -------------------------------------------------------------------------- */
+
+const mutationCallback = mutationList => {
+  // Hide the list <frameset> if it is empty. this is a bit overkill for the use
+  // case, but I wanted to learn how to use MutationObserver!
+  mutationList.forEach(mutation => {
+    const listLength = mutation.target.querySelectorAll("li").length;
+    if (listLength === 0) {
+      mutation.target.parentElement.closest("fieldset").style.display = "none";
+    } else {
+      mutation.target.parentElement.closest("fieldset").style.display = "block";
+    }
+  });
+};
+
+const observer = new MutationObserver(mutationCallback);
+observer.observe(boughtList, { childList: true });
+observer.observe(unboughtList, { childList: true });
+
+/* -------------------------------------------------------------------------- */
 /*             restore previous list from localstorage on refresh             */
 /* -------------------------------------------------------------------------- */
 const populateList = data => {
