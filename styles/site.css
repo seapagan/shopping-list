@@ -37,6 +37,7 @@ footer {
   font-size: 0.8em;
   color: hsl(0, 0%, 50%);
   flex-shrink: 0;
+  margin-top: 1em;
 }
 
 .title {
