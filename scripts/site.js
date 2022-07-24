@@ -12,7 +12,7 @@ const createListItem = itemName => {
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
-    testData.forEach(item => createListItem(item));
+    testData.reverse().forEach(item => createListItem(item));
     return;
   }
 

@@ -1,8 +1,5 @@
 // assorted functions to take care of localstorage.
-
-const getAllItemsList = () => {
-  return document.querySelectorAll("li.list-item");
-};
+const getAllItemsList = () => document.querySelectorAll("li.list-item");
 
 const getListData = () => {
   const listItemsList = getAllItemsList();
@@ -15,11 +12,8 @@ const getListData = () => {
   return listData;
 };
 
-export const updateStoredList = () => {
+export const updateStoredList = () =>
   localStorage.setItem("SHOPPINGLIST_LIST", JSON.stringify(getListData()));
-};
 
-export const getStoredList = () => {
-  const data = localStorage.getItem("SHOPPINGLIST_LIST");
-  return JSON.parse(data);
-};
+export const getStoredList = () =>
+  JSON.parse(localStorage.getItem("SHOPPINGLIST_LIST"));
