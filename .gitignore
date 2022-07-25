@@ -46,5 +46,5 @@
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 node_modules
-dist/index.html
-dist/*.js
+dist/*
+!dist/favicon.ico
