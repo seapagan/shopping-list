@@ -1,7 +1,8 @@
-import { testData } from "../test-data.js";
+import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
+import { getStoredList, updateStoredList } from "./modules/storage.js";
+import { testData } from "./test-data.js";
 
-import { checkButton, deleteButton, editButton } from "./buttons.js";
-import { getStoredList, updateStoredList } from "./storage.js";
+import "./styles/site.css";
 
 const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
@@ -64,7 +65,6 @@ document.getElementById("add-item").addEventListener("click", handleSubmit);
 /* -------------------------------------------------------------------------- */
 /*        set up a MutationObserver to hide/show the individual lists.        */
 /* -------------------------------------------------------------------------- */
-
 const mutationCallback = mutationList => {
   // Hide the list <frameset> if it is empty. this is a bit overkill for the use
   // case, but I wanted to learn how to use MutationObserver!

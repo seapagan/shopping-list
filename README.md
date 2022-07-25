@@ -53,3 +53,18 @@ I'll look at replacing this with a free solution when the app is completed.**
 - possibly replace LocalStorage with IndexedDB to allow async. Probably won't
   speed up this app much but would be a decent learning experience.
 - implement accordian drop-downs for each list.
+
+## Development
+
+Development needs [Node.JS](https://nodejs.org/) to be installed and optionally
+[yarn](https://yarnpkg.com/). **These are NOT needed for production once the
+optimized bundle is created.**
+
+1) Fork or Checkout this repository then change into that directory.
+2) Install dependencies using `npm install` or `yarn install`
+3) Run the development server using `npm run dev` or `yarn dev` then access
+   <http://localhost:8080> to use the app.
+
+## Deployment
+
+`[in progress]`
