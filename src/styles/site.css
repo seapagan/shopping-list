@@ -139,6 +139,7 @@ main {
 }
 
 fieldset {
+  position: relative;
   display: none;
   margin: 0.3em 1em;
   border-radius: 0.5em;
@@ -150,6 +151,17 @@ legend {
   margin: 0 auto;
   padding: 0.5em;
   font-weight: 600;
+}
+
+.delete-list {
+  position: absolute;
+  padding: 0 0.2em;
+  background-color: #fff;
+  top: -33px;
+  right: 10px;
+  /* color: var(--color-warning); */
+  color: red;
+  cursor: pointer;
 }
 
 footer {
