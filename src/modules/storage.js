@@ -27,5 +27,7 @@ const getListData = () => {
 export const updateStoredList = () =>
   localStorage.setItem("SP_SHOPPINGLIST_LIST", JSON.stringify(getListData()));
 
-export const getStoredList = () =>
-  JSON.parse(localStorage.getItem("SP_SHOPPINGLIST_LIST"));
+export const getStoredList = () => {
+  const storedData = JSON.parse(localStorage.getItem("SP_SHOPPINGLIST_LIST"));
+  return storedData ? storedData : [];
+};
