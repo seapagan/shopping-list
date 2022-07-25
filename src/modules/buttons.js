@@ -91,7 +91,7 @@ const handleApplyEdit = e => {
 
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
-  textContent.appendChild(document.createTextNode(editField.value));
+  textContent.append(document.createTextNode(editField.value));
 
   editField.replaceWith(textContent);
 
@@ -106,7 +106,7 @@ const handleEnterPressedOnEdit = e => {
 
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
-  textContent.appendChild(document.createTextNode(e.target.value));
+  textContent.append(document.createTextNode(e.target.value));
 
   const acceptButton = e.target.parentElement
     .closest("div")

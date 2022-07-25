@@ -27,20 +27,20 @@ const createListItem = (itemName, isBought = false) => {
 
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
-  textContent.appendChild(document.createTextNode(itemName));
+  textContent.append(document.createTextNode(itemName));
 
-  checkAndTextElement.append(checkButton());
-  checkAndTextElement.append(textContent);
+  checkAndTextElement.append(checkButton(), textContent);
+  // checkAndTextElement.append(textContent);
 
   // create the button bar
   const buttonBar = document.createElement("div");
   buttonBar.className = "button-bar";
-  buttonBar.append(editButton());
-  buttonBar.appendChild(deleteButton());
+  buttonBar.append(editButton(), deleteButton());
+  // buttonBar.appendChild(deleteButton());
 
   // add both to the new item element
-  newItem.append(checkAndTextElement);
-  newItem.append(buttonBar);
+  newItem.append(checkAndTextElement, buttonBar);
+  // newItem.append(buttonBar);
 
   // add the new item to the list
   if (isBought) {
