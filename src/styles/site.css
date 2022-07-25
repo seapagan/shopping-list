@@ -157,10 +157,9 @@ legend {
   position: absolute;
   padding: 0 0.2em;
   background-color: #fff;
-  top: -33px;
+  top: -36px;
   right: 10px;
   color: var(--color-warning);
-  /* color: red; */
   cursor: pointer;
 }
 
