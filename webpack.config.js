@@ -19,8 +19,17 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "src/index.html",
+        inject: false,
       }),
-    ].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+    ].concat(
+      devMode
+        ? []
+        : [
+            new MiniCssExtractPlugin({
+              filename: "site.[contenthash].css",
+            }),
+          ]
+    ),
     devServer: {
       static: {
         directory: path.join(__dirname, "dist"),
