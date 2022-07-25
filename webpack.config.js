@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
   const devMode = argv.mode !== "production";
 
   const config = {
-    mode: "development",
+    mode: argv.mode ? argv.mode : "development",
     entry: "./src/index.js",
     output: {
       path: __dirname + "/dist",
@@ -61,6 +61,8 @@ module.exports = (env, argv) => {
       minimizer: ["...", new CssMinimizerPlugin()],
     },
   };
+
+  console.log("Mode : ", config.mode);
 
   return config;
 };
