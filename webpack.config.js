@@ -35,6 +35,8 @@ module.exports = (env, argv) => {
       static: {
         directory: path.join(__dirname, "dist"),
       },
+      watchFiles: ["./src/*"],
+      hot: true,
     },
     module: {
       rules: [
