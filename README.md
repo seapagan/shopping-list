@@ -1,7 +1,7 @@
 # Shopping List App
 
 [![CodeQL](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml) [![Dependency
-Review](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml) [![pages-build-deployment](https://github.com/seapagan/shopping-list/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/pages/pages-build-deployment)
+Review](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/626644b9-1b8d-4936-821d-b02784fd765e/deploy-status)](https://app.netlify.com/sites/sp-shopping/deploys)
 
 A web-based Shopping List written in plain-vanilla JavaScript. Currently this is
 in a seriously **alpha stage**, with incomplete styling.
@@ -67,4 +67,12 @@ optimized bundle is created.**
 
 ## Deployment
 
-`[in progress]`
+To create a production minimised version, run the following from the project
+root:
+
+```bash
+webpack prod
+```
+
+This will create an optimised version in the [dist](dist) folder, the contents
+of which can then be served from any standard web server or service.
