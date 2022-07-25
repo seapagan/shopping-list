@@ -10,7 +10,7 @@ module.exports = {
     // "filename": "bundle.[contenthash].js",
     filename: "site.[contenthash].js",
     clean: {
-      keep: /(favicon|CNAME)/,
+      keep: /favicon/,
     },
   },
   plugins: [
