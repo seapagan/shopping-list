@@ -67,12 +67,8 @@ optimized bundle is created.**
 
 ## Deployment
 
-To create a production minimised version, run the following from the project
-root:
-
-```bash
-webpack prod
-```
+To create a production minimised version, run `npm prod` (or `yarn prod`
+depending on your preference) from the project root:
 
 This will create an optimised version in the [dist](dist) folder, the contents
 of which can then be served from any standard web server or service.
