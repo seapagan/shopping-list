@@ -5,6 +5,7 @@
   "homepage": "https://www.gnramsay.com/",
   "scripts": {
     "build": "webpack build",
+    "prod": "webpack build --mode=production",
     "dev": "webpack serve"
   },
   "dependencies": {},
