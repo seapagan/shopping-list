@@ -1,44 +1,68 @@
 const path = require("path");
 
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
-  output: {
-    path: __dirname + "/dist",
-    // "filename": "bundle.[contenthash].js",
-    filename: "site.[contenthash].js",
-    clean: {
-      keep: /favicon/,
-    },
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "src/index.html",
-    }),
-  ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+module.exports = (env, argv) => {
+  const devMode = argv.mode !== "production";
+
+  const config = {
+    mode: argv.mode ? argv.mode : "development",
+    entry: "./src/index.js",
+    output: {
+      path: __dirname + "/dist",
+      filename: "site.[contenthash].js",
+      clean: {
+        keep: /favicon/,
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "src/index.html",
+        inject: false,
+      }),
+    ].concat(
+      devMode
+        ? []
+        : [
+            new MiniCssExtractPlugin({
+              filename: "site.[contenthash].css",
+            }),
+          ]
+    ),
+    devServer: {
+      static: {
+        directory: path.join(__dirname, "dist"),
+      },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+          ],
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
           },
         },
-      },
-    ],
-  },
+      ],
+    },
+    optimization: {
+      minimizer: ["...", new CssMinimizerPlugin()],
+    },
+  };
+
+  console.log("Mode : ", config.mode);
+
+  return config;
 };
