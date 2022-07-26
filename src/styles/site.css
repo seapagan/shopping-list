@@ -159,7 +159,8 @@ legend {
   background-color: #fff;
   top: -36px;
   right: 10px;
-  color: var(--color-warning);
+  /* color: var(--color-warning); */
+  color: red;
   cursor: pointer;
 }
 
@@ -196,9 +197,12 @@ the remaining item that takes its index.
     background-color: var(--list-item-active);
   }
 
-  .delete-list:hover,
   .delete-button:hover {
     color: red;
+  }
+
+  .delete-list:hover {
+    color: hsl(0, 100%, 33%);
   }
 }
 
