@@ -32,6 +32,9 @@ module.exports = (env, argv) => {
           ]
     ),
     devServer: {
+      client: {
+        logging: "warn",
+      },
       static: {
         directory: path.join(__dirname, "dist"),
       },
