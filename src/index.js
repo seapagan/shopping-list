@@ -83,6 +83,22 @@ observer.observe(boughtList, { childList: true });
 observer.observe(unboughtList, { childList: true });
 
 /* -------------------------------------------------------------------------- */
+/*               Add click listeners to the list-delete buttons               */
+/* -------------------------------------------------------------------------- */
+const handleDeleteList = e => {
+  e.target.parentElement
+    .closest("fieldset")
+    .querySelectorAll("li")
+    .forEach(item => item.remove());
+
+  updateStoredList();
+};
+
+document
+  .querySelectorAll(".delete-list")
+  .forEach(el => el.addEventListener("click", handleDeleteList));
+
+/* -------------------------------------------------------------------------- */
 /*             restore previous list from localstorage on refresh             */
 /* -------------------------------------------------------------------------- */
 const populateList = data => {
