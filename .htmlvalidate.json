@@ -1,6 +1,7 @@
 {
   "extends": [
-    "html-validate:recommended"
+    "html-validate:recommended",
+    "html-validate:document"
   ],
   "rules": {
     "void-style": [
@@ -8,6 +9,17 @@
       {
         "style": "selfclosing"
       }
-    ]
+    ],
+    "require-sri": [
+      "error",
+      {
+        "target": "crossorigin",
+        "exclude": [
+          "googleapis.com",
+          "gstatic.com"
+        ]
+      }
+    ],
+    "no-style-tag": "error"
   }
 }

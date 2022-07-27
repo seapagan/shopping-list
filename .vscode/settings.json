@@ -5,6 +5,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.folding": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -26,9 +27,6 @@
     "typescriptreact"
   ],
   "explorer.compactFolders": false,
-  // "files.associations": {
-  //   "*.js": "javascriptreact"
-  // },
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -36,7 +34,5 @@
   "git.enableCommitSigning": true,
   "prettier.arrowParens": "avoid",
   "prettier.jsxBracketSameLine": true,
-  "prettier.packageManager": "yarn",
-  "prettier.tabWidth": 2,
-  "editor.folding": true
+  "prettier.tabWidth": 2
 }
