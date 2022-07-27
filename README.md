@@ -20,8 +20,8 @@ I'll look at replacing this with a free solution when the app is completed.**
 
 ## Functionality that is Working
 
-- Add a new List Item
-- Delete an existing List Item
+- Add a new List Item.
+- Delete an existing List Item or complete list.
 - Toggle an item as done. If toggled, it is moved to a different list below. If
   toggled again, it is moved back to the main list.
 - Edit an item name inline.
