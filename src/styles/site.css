@@ -7,22 +7,18 @@
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
   --general-border: hsl(200, 50%, 70%);
-
   --list-item-bg: hsl(186, 80%, 98%);
   --list-item-active: hsl(186, 80%, 95%);
   --list-item-border: hsl(0, 0%, 90%);
-
   --color-warning: hsl(0, 80%, 70%);
-
-  --item-open: hsla(0, 0%, 50%, 0.543);
-  --item-open-hover: hsla(120, 100%, 25%, 0.6);
+  --item-open: hsla(0, 0%, 50%, 54.3%);
+  --item-open-hover: hsla(120, 100%, 25%, 60%);
   --item-completed: hsl(120, 100%, 25%);
-  --item-completed-bg: hsla(0, 0%, 83%, 0.337);
+  --item-completed-bg: hsla(0, 0%, 83%, 33.7%);
   --item-completed-color: gray;
-
   --edit-item-bg: hsl(0, 78%, 93%);
 
-  font-family: "Oxygen", sans-serif;
+  font-family: Oxygen, sans-serif;
   font-size: 20px;
 }
 
@@ -55,7 +51,7 @@ main {
   border-radius: 0.5em;
   font-size: 1rem;
   border: 1px solid var(--general-border);
-  box-shadow: 0px 10px 13px -7px #000000;
+  box-shadow: 0 10px 13px -7px #000;
 }
 
 .input-form #add-item {
@@ -66,7 +62,7 @@ main {
   background-color: hsl(0, 0%, 94%);
   color: black;
   padding: 0.5em;
-  box-shadow: 0px 10px 13px -7px #000000;
+  box-shadow: 0 10px 13px -7px #000;
 }
 
 #list-root,
@@ -114,7 +110,7 @@ main {
 }
 
 .item-completed {
-  color: vaR(--item-completed-color);
+  color: var(--item-completed-color);
   background-color: var(--item-completed-bg);
 }
 
@@ -144,7 +140,7 @@ fieldset {
   margin: 0.4em 1em;
   border-radius: 0.5em;
   border: 1px solid var(--general-border);
-  box-shadow: 0px 10px 13px -7px #000000;
+  box-shadow: 0 10px 13px -7px #000;
 }
 
 legend {
@@ -159,6 +155,7 @@ legend {
   background-color: #fff;
   top: -36px;
   right: 10px;
+
   /* color: var(--color-warning); */
   color: red;
   cursor: pointer;

@@ -4,6 +4,7 @@
     "node": true,
     "es2021": true
   },
+  "root": true,
   "extends": ["eslint:recommended"],
   "parserOptions": {
     "ecmaFeatures": {
@@ -23,13 +24,13 @@
         "count": 1
       }
     ],
-    // "indent": [
-    //   "error",
-    //   2,
-    //   {
-    //     "SwitchCase": 1
-    //   }
-    // ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
     "linebreak-style": ["error", "unix"],
     "max-len": [
       "warn",
@@ -49,11 +50,12 @@
       "error",
       {
         "groups": [
-          ["^[a-z]"],
           // Packages starting with `@`
           ["^@"],
           // Packages starting with `~`
           ["^~"],
+          // other named imported packages
+          ["^[a-z]"],
           // Side effect imports
           ["^\\u0000"],
           // Imports starting with `../`

@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
+  "ignoreFiles": [
+    "dist/*",
+    "node_modules/**"
+  ],
+  "rules": {
+    "hue-degree-notation": "number",
+    "color-function-notation": "legacy"
+  }
+}

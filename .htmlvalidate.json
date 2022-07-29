@@ -16,7 +16,8 @@
         "target": "crossorigin",
         "exclude": [
           "googleapis.com",
-          "gstatic.com"
+          "gstatic.com",
+          "fontawesome.com"
         ]
       }
     ],
