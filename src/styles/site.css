@@ -83,6 +83,11 @@ main {
   border: 1px solid var(--list-item-border);
   padding: 0.5em;
   border-radius: 0.3em;
+  cursor: move;
+}
+
+.list-item.dragging {
+  opacity: 0.4;
 }
 
 .button-bar {

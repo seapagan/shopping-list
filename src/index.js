@@ -8,6 +8,15 @@ const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 
+const addDragListeners = (el) => {
+  el.addEventListener("dragstart", ()=>{
+    el.classList.add("dragging");
+  });
+  el.addEventListener("dragend", () => {
+    el.classList.remove("dragging");
+  });
+};
+
 const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") return;
@@ -30,17 +39,17 @@ const createListItem = (itemName, isBought = false) => {
   textContent.append(document.createTextNode(itemName));
 
   checkAndTextElement.append(checkButton(), textContent);
-  // checkAndTextElement.append(textContent);
 
   // create the button bar
   const buttonBar = document.createElement("div");
   buttonBar.className = "button-bar";
   buttonBar.append(editButton(), deleteButton());
-  // buttonBar.appendChild(deleteButton());
 
   // add both to the new item element
   newItem.append(checkAndTextElement, buttonBar);
-  // newItem.append(buttonBar);
+  // make whole thing draggable
+  newItem.draggable = true;
+  addDragListeners(newItem);
 
   // add the new item to the list
   if (isBought) {
@@ -112,3 +121,40 @@ const populateList = data => {
 };
 
 getStoredList().forEach(data => populateList(data));
+
+/* ---------------- add drag/drop listeners to the list items --------------- */
+const getDragAfterElement = (target, clientY) => {
+  const els = [...target.children].filter(el => el.draggable);
+  return els.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = clientY - box.top - box.height/2;
+    if (offset < 0 && offset > closest.offset) {
+      return {offset: offset, element: child};
+    }
+    return closest;
+  },{offset: Number.NEGATIVE_INFINITY}).element;
+};
+
+const draggables = document.querySelectorAll(".list-item");
+const dropTargets = document.querySelectorAll("ul");
+
+draggables.forEach(draggable => {
+  addDragListeners(draggable);
+});
+
+dropTargets.forEach(dropTarget => {
+  dropTarget.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(dropTarget, e.clientY);
+    const draggable = document.querySelector(".dragging");
+    if (afterElement == null) {
+      dropTarget.append(draggable);
+    } else {
+      dropTarget.insertBefore(draggable, afterElement);
+    }
+    // TODO - if item has moved between lists, toggle the .item-completed class
+    updateStoredList();
+  }
+  );
+
+});
