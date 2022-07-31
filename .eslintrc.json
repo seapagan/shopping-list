@@ -5,7 +5,7 @@
     "es2021": true
   },
   "root": true,
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "plugin:sonarjs/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -14,7 +14,7 @@
     "sourceType": "module"
   },
   "ignorePatterns": ["dist/*"],
-  "plugins": ["simple-import-sort", "import"],
+  "plugins": ["simple-import-sort", "import", "sonarjs"],
   "rules": {
     "import/no-duplicates": "error",
     "import/first": "error",
