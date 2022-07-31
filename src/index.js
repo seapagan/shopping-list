@@ -8,6 +8,8 @@ const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 
+const ITEM_COMPLETED = "item-completed";
+
 const addDragListeners = (el) => {
   el.addEventListener("dragstart", ()=>{
     el.classList.add("dragging");
@@ -53,7 +55,7 @@ const createListItem = (itemName, isBought = false) => {
 
   // add the new item to the list
   if (isBought) {
-    newItem.classList.add("item-completed");
+    newItem.classList.add(ITEM_COMPLETED);
     boughtList.prepend(newItem);
   } else {
     unboughtList.prepend(newItem);
@@ -122,7 +124,7 @@ const populateList = data => {
 
 getStoredList().forEach(data => populateList(data));
 
-/* ---------------- add drag/drop listeners to the list items --------------- */
+/* ----------- add drag/drop listeners to the existing list items ----------- */
 const getDragAfterElement = (target, clientY) => {
   const els = [...target.children].filter(el => el.draggable);
   return els.reduce((closest, child) => {
@@ -136,7 +138,7 @@ const getDragAfterElement = (target, clientY) => {
 };
 
 const draggables = document.querySelectorAll(".list-item");
-const dropTargets = document.querySelectorAll("ul");
+const dropTargets = document.querySelectorAll("fieldset>ul");
 
 draggables.forEach(draggable => {
   addDragListeners(draggable);
@@ -152,7 +154,11 @@ dropTargets.forEach(dropTarget => {
     } else {
       dropTarget.insertBefore(draggable, afterElement);
     }
-    // TODO - if item has moved between lists, toggle the .item-completed class
+    if (dropTarget.id === "list-root") {
+      draggable.classList.remove(ITEM_COMPLETED);
+    } else {
+      draggable.classList.add(ITEM_COMPLETED);
+    }
     updateStoredList();
   }
   );
