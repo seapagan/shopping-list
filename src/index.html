@@ -21,9 +21,18 @@
     <title>Shopping List</title>
   </head>
 
-  <body>
+  <body class="light-mode">
     <main>
-      <h1 class="title">Shopping List</h1>
+      <header>
+        <h1 class="title">Shopping List</h1>
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          aria-label="Toggle Dark
+        Mode"
+        />
+      </header>
       <form class="input-form">
         <!-- [html-validate-disable-next input-missing-label] -->
         <input id="text-input" type="text" placeholder="Add Item" />

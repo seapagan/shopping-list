@@ -7,6 +7,9 @@ import "./styles/site.css";
 const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
+const bodyEl = document.querySelector("body");
+
+const colorToggle = document.getElementById("toggle");
 
 const ITEM_COMPLETED = "item-completed";
 
@@ -124,7 +127,25 @@ const populateList = data => {
 
 getStoredList().forEach(data => populateList(data));
 
-/* ----------- add drag/drop listeners to the existing list items ----------- */
+/* -------------------------------------------------------------------------- */
+/*                          Handle color mode toggle                          */
+/* -------------------------------------------------------------------------- */
+
+const toggleColorMode = (dark) => {
+  bodyEl.classList = dark ? "dark-mode" : "light-mode";
+};
+
+const handleToggleColorMode = (e) => {
+  // bodyEl.classList = e.target.checked ? "dark-mode" : "light-mode";
+  toggleColorMode(e.target.checked);
+};
+
+colorToggle.addEventListener("click",handleToggleColorMode);
+toggleColorMode(colorToggle.checked);
+
+/* -------------------------------------------------------------------------- */
+/*             add drag/drop listeners to the existing list items             */
+/* -------------------------------------------------------------------------- */
 const getDragAfterElement = (target, clientY) => {
   const els = [...target.children].filter(el => el.draggable);
   return els.reduce((closest, child) => {

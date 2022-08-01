@@ -6,9 +6,18 @@
 
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
+  font-family: Oxygen, sans-serif;
+  font-size: 20px;
+
+  --transition-time: 0.3s;
+}
+
+.light-mode {
+  --bg-color: white;
+  --text-color: hsl(0, 0%, 15%);
   --general-border: hsl(200, 50%, 70%);
   --list-item-bg: hsl(186, 80%, 98%);
-  --list-item-active: hsl(186, 80%, 95%);
+  --list-item-active: hsl(186, 80%, 92%);
   --list-item-border: hsl(0, 0%, 90%);
   --color-warning: hsl(0, 80%, 70%);
   --item-open: hsla(0, 0%, 50%, 54.3%);
@@ -16,23 +25,51 @@
   --item-completed: hsl(120, 100%, 25%);
   --item-completed-bg: hsla(0, 0%, 83%, 33.7%);
   --item-completed-color: gray;
-  --edit-item-bg: hsl(0, 78%, 93%);
+  --edit-item-bg: hsl(56, 100%, 97%);
+  --box-shadow-color: hsl(0, 0%, 0%);
+}
 
-  font-family: Oxygen, sans-serif;
-  font-size: 20px;
+.dark-mode {
+  --bg-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 75%);
+  --general-border: hsl(10, 21%, 32%);
+  --list-item-bg: hsl(0, 0%, 15%);
+  --list-item-active: hsl(0, 0%, 25%);
+  --list-item-border: hsl(0, 0%, 0%);
+  --color-warning: hsl(0, 80%, 70%);
+  --item-open: hsla(0, 0%, 50%, 54.3%);
+  --item-open-hover: hsla(120, 100%, 25%, 60%);
+  --item-completed: hsl(120, 100%, 25%);
+  --item-completed-bg: var(--list-item-bg);
+  --item-completed-color: var(--text-color);
+  --edit-item-bg: hsl(55, 100%, 8%);
+  --box-shadow-color: hsl(0, 0%, 22%);
 }
 
 body {
   min-width: 320px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: color var(--transition-time) ease-in-out,
+    background-color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
 }
 
 main {
   flex: 1 0 auto;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
 .title {
-  text-align: center;
+  text-align: left;
   margin: 0.5em 0;
+  font-size: 1.5em;
 }
 
 .input-form {
@@ -45,24 +82,32 @@ main {
 
 .input-form #text-input {
   appearance: none;
+  color: var(--text-color);
+  background-color: var(--list-item-bg);
   width: 100%;
   outline: none;
   padding: 0.4em;
   border-radius: 0.5em;
   font-size: 1rem;
   border: 1px solid var(--general-border);
-  box-shadow: 0 10px 13px -7px #000;
+  box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+  transition: background-color var(--transition-time) ease-in-out,
+    color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
 }
 
 .input-form #add-item {
   cursor: pointer;
   font-size: 1rem;
-  border: none;
+  color: var(--text-color);
+  background-color: var(--list-item-bg);
   border-radius: 0.5em;
-  background-color: hsl(0, 0%, 94%);
-  color: black;
+  border: 1px solid var(--general-border);
   padding: 0.5em;
-  box-shadow: 0 10px 13px -7px #000;
+  box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+  transition: background-color var(--transition-time) ease-in-out,
+    color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
 }
 
 #list-root,
@@ -84,6 +129,9 @@ main {
   padding: 0.5em;
   border-radius: 0.3em;
   cursor: move;
+  transition: background-color var(--transition-time) ease-in-out,
+    color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
 }
 
 .list-item.dragging {
@@ -133,10 +181,12 @@ main {
   padding: 0.2em;
   border-radius: 0.3em;
   border: 1px solid var(--list-item-border);
+  color: var(--text-color);
+  background-color: var(--edit-item-bg);
   width: 100%;
   margin-right: 1em;
   outline: none;
-  box-shadow: 0 0 3px #ddd;
+  box-shadow: 0 0 3px var(--box-shadow-color);
 }
 
 fieldset {
@@ -145,7 +195,8 @@ fieldset {
   margin: 0.4em 1em;
   border-radius: 0.5em;
   border: 1px solid var(--general-border);
-  box-shadow: 0 10px 13px -7px #000;
+  box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+  transition: border-color var(--transition-time) ease-in-out;
 }
 
 legend {
@@ -157,11 +208,10 @@ legend {
 .delete-list {
   position: absolute;
   padding: 0 0.2em;
-  background-color: #fff;
+  background-color: var(--bg-color);
   top: -36px;
   right: 10px;
-
-  /* color: var(--color-warning); */
+  transition: background-color var(--transition-time) ease-in-out;
   color: red;
   cursor: pointer;
 }
@@ -206,11 +256,19 @@ the remaining item that takes its index.
   .delete-list:hover {
     color: hsl(0, 100%, 33%);
   }
+
+  #add-item:hover {
+    background-color: var(--list-item-active);
+  }
 }
 
 @media screen and (min-width: 600px) {
   body {
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .title {
+    font-size: 2rem;
   }
 }
