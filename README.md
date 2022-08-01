@@ -28,6 +28,8 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Save current items to LocalStorage so they persist between sessions.
 - Drag and drop ordering of items, even between lists. Does not work on Mobile
   devices
+- Light/Dark mode toggle
+- Responsive Design
 
 ## Functionality Planned
 
@@ -43,7 +45,6 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Remember previous items and shops for later input.
 - Save the entire list as a favourite, ability to load from saved favourites
   overwriting any current list.
-- Fully responsive design.
 - add a toaster-notification system for add/complete/delete/errors etc. Try
   write from scratch.
 
