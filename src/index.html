@@ -21,12 +21,26 @@
     <title>Shopping List</title>
   </head>
 
-  <body>
+  <body class="light-mode">
     <main>
-      <h1 class="title">Shopping List</h1>
+      <header>
+        <h1 class="title">Shopping List</h1>
+        <!-- [html-validate-disable-next input-missing-label] -->
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          aria-label="Toggle Dark Mode"
+        />
+      </header>
       <form class="input-form">
         <!-- [html-validate-disable-next input-missing-label] -->
-        <input id="text-input" type="text" placeholder="Add Item" />
+        <input
+          id="text-input"
+          type="text"
+          placeholder="Add Item"
+          autocomplete="off"
+        />
         <button id="add-item" type="submit" aria-label="Add Item">
           <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
         </button>
