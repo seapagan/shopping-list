@@ -60,10 +60,31 @@ main {
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+}
+
+#toggle {
+  appearance: none;
+  cursor: pointer;
+}
+
+#toggle::before {
+  position: absolute;
+  content: url("../assets/weather-night.svg");
+  display: block;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  right: 16px;
+}
+
+#toggle:checked::before {
+  content: url("../assets/white-balance-sunny.svg");
+  filter: invert(100%);
 }
 
 .title {
