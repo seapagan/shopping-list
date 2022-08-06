@@ -74,7 +74,7 @@ header {
 
 #toggle::before {
   position: absolute;
-  content: url("../assets/weather-night.svg");
+  content: url("../assets/white-balance-sunny.svg");
   display: block;
   width: 24px;
   height: 24px;
@@ -83,7 +83,7 @@ header {
 }
 
 #toggle:checked::before {
-  content: url("../assets/white-balance-sunny.svg");
+  content: url("../assets/weather-night.svg");
   filter: invert(100%);
 }
 
