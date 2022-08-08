@@ -1,0 +1,41 @@
+.toaster-dock {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  top: 10px;
+  left: 10px;
+}
+
+.toaster-message {
+  text-align: center;
+  padding: 0.3em;
+  opacity: 0.8;
+  border-radius: 5px;
+  margin-bottom: 0.2em;
+  max-width: 300px;
+
+  &.success {
+    border: 1px solid green;
+    background-color: limegreen;
+    color: black;
+  }
+
+  &.warning {
+    border: 1px solid rgb(219, 219, 0);
+    background-color: lightyellow;
+    color: black;
+  }
+
+  &.error {
+    border: 1px solid red;
+    background-color: lightsalmon;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .toaster-message {
+    max-width: none;
+    width: calc(100% - 20px);
+  }
+}
