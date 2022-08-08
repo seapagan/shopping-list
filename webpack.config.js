@@ -1,12 +1,12 @@
 const path = require("path");
-const fs=require("fs");
+const fs = require("fs");
 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
-
+const WarningsToErrorsPlugin = require("warnings-to-errors-webpack-plugin");
 
 const chooseEntry = () => {
   // this will use an index.ts file if exists, otherwise uses index.js
@@ -28,7 +28,7 @@ module.exports = (env, argv) => {
   const config = {
     mode: argv.mode ? argv.mode : "development",
     entry: {
-      bundle: chooseEntry()
+      bundle: chooseEntry(),
     },
     devtool: devMode ? "eval" : "source-map",
     resolve: {
@@ -46,24 +46,25 @@ module.exports = (env, argv) => {
       }),
       new ESLintPlugin(),
       new StylelintPlugin({
-        configFile: ".stylelintrc.json"
-      })
+        configFile: ".stylelintrc.json",
+      }),
     ].concat(
       devMode
         ? []
         : [
-          new MiniCssExtractPlugin({
-            filename: "[contenthash].css",
-          }),
-        ]
+            new WarningsToErrorsPlugin(),
+            new MiniCssExtractPlugin({
+              filename: "[contenthash].css",
+            }),
+          ]
     ),
     devServer: {
       client: {
         logging: "warn",
         overlay: {
           warnings: false,
-          errors: true
-        }
+          errors: true,
+        },
       },
       static: {
         directory: path.join(__dirname, "dist"),
@@ -78,7 +79,7 @@ module.exports = (env, argv) => {
           use: [
             devMode ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader",
-            "sass-loader"
+            "sass-loader",
           ],
         },
         {
@@ -98,7 +99,7 @@ module.exports = (env, argv) => {
           use: {
             loader: "ts-loader",
           },
-        }
+        },
       ],
     },
     optimization: {

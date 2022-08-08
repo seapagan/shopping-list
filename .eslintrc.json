@@ -5,7 +5,7 @@
     "es2021": true
   },
   "root": true,
-  "extends": ["eslint:recommended", "plugin:sonarjs/recommended"],
+  "extends": ["eslint:recommended", "plugin:sonarjs/recommended", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -28,7 +28,8 @@
       "error",
       2,
       {
-        "SwitchCase": 1
+        "SwitchCase": 1,
+        "offsetTernaryExpressions": true
       }
     ],
     "linebreak-style": ["error", "unix"],
