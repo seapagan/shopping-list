@@ -1,0 +1,36 @@
+/* -------------------------------------------------------------------------- */
+/*                  define classes to enable theme-switching                  */
+/* -------------------------------------------------------------------------- */
+.light-mode {
+  --bg-color: white;
+  --text-color: hsl(0, 0%, 15%);
+  --general-border: hsl(200, 50%, 70%);
+  --list-item-bg: hsl(186, 80%, 98%);
+  --list-item-active: hsl(186, 80%, 92%);
+  --list-item-border: hsl(0, 0%, 90%);
+  --color-warning: hsl(0, 80%, 70%);
+  --item-open: hsla(0, 0%, 50%, 54.3%);
+  --item-open-hover: hsla(120, 100%, 25%, 60%);
+  --item-completed: hsl(120, 100%, 25%);
+  --item-completed-bg: hsla(0, 0%, 83%, 33.7%);
+  --item-completed-color: gray;
+  --edit-item-bg: hsl(56, 100%, 97%);
+  --box-shadow-color: hsl(0, 0%, 0%);
+}
+
+.dark-mode {
+  --bg-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 75%);
+  --general-border: hsl(10, 21%, 32%);
+  --list-item-bg: hsl(0, 0%, 15%);
+  --list-item-active: hsl(0, 0%, 25%);
+  --list-item-border: hsl(0, 0%, 0%);
+  --color-warning: hsl(0, 80%, 70%);
+  --item-open: hsla(0, 0%, 50%, 54.3%);
+  --item-open-hover: hsla(120, 100%, 25%, 60%);
+  --item-completed: hsl(120, 100%, 25%);
+  --item-completed-bg: var(--list-item-bg);
+  --item-completed-color: var(--text-color);
+  --edit-item-bg: hsl(55, 100%, 8%);
+  --box-shadow-color: hsl(0, 0%, 22%);
+}

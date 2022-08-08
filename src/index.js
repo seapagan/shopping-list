@@ -2,7 +2,7 @@ import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
 import { testData } from "./test-data.js";
 
-import "./styles/site.css";
+import "./styles/site.scss";
 
 const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
@@ -13,8 +13,8 @@ const colorToggle = document.getElementById("toggle");
 
 const ITEM_COMPLETED = "item-completed";
 
-const addDragListeners = (el) => {
-  el.addEventListener("dragstart", ()=>{
+const addDragListeners = el => {
+  el.addEventListener("dragstart", () => {
     el.classList.add("dragging");
   });
   el.addEventListener("dragend", () => {
@@ -74,7 +74,7 @@ const handleSubmit = e => {
   createListItem(textInput.value);
 };
 
-document.getElementById("add-item").addEventListener("click", handleSubmit);
+document.getElementById("new-item").addEventListener("click", handleSubmit);
 
 /* -------------------------------------------------------------------------- */
 /*        set up a MutationObserver to hide/show the individual lists.        */
@@ -131,16 +131,16 @@ getStoredList().forEach(data => populateList(data));
 /*                          Handle color mode toggle                          */
 /* -------------------------------------------------------------------------- */
 
-const toggleColorMode = (dark) => {
+const toggleColorMode = dark => {
   bodyEl.classList = dark ? "dark-mode" : "light-mode";
 };
 
-const handleToggleColorMode = (e) => {
+const handleToggleColorMode = e => {
   // bodyEl.classList = e.target.checked ? "dark-mode" : "light-mode";
   toggleColorMode(e.target.checked);
 };
 
-colorToggle.addEventListener("click",handleToggleColorMode);
+colorToggle.addEventListener("click", handleToggleColorMode);
 toggleColorMode(colorToggle.checked);
 
 /* -------------------------------------------------------------------------- */
@@ -148,14 +148,17 @@ toggleColorMode(colorToggle.checked);
 /* -------------------------------------------------------------------------- */
 const getDragAfterElement = (target, clientY) => {
   const els = [...target.children].filter(el => el.draggable);
-  return els.reduce((closest, child) => {
-    const box = child.getBoundingClientRect();
-    const offset = clientY - box.top - box.height/2;
-    if (offset < 0 && offset > closest.offset) {
-      return {offset: offset, element: child};
-    }
-    return closest;
-  },{offset: Number.NEGATIVE_INFINITY}).element;
+  return els.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = clientY - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      }
+      return closest;
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
 };
 
 const draggables = document.querySelectorAll(".list-item");
@@ -166,7 +169,7 @@ draggables.forEach(draggable => {
 });
 
 dropTargets.forEach(dropTarget => {
-  dropTarget.addEventListener("dragover", (e) => {
+  dropTarget.addEventListener("dragover", e => {
     e.preventDefault();
     const afterElement = getDragAfterElement(dropTarget, e.clientY);
     const draggable = document.querySelector(".dragging");
@@ -181,7 +184,5 @@ dropTargets.forEach(dropTarget => {
       draggable.classList.add(ITEM_COMPLETED);
     }
     updateStoredList();
-  }
-  );
-
+  });
 });

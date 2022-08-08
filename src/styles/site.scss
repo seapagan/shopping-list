@@ -1,0 +1,259 @@
+@import "partials/reset";
+@import "partials/themes";
+
+/* ------------------- define global colors and font sizes ------------------ */
+:root {
+  font-family: Oxygen, sans-serif;
+  font-size: 20px;
+
+  --transition-time: 0.3s;
+}
+
+body {
+  min-width: 320px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: color var(--transition-time) ease-in-out,
+    background-color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.title {
+  text-align: left;
+  margin: 0.5em 0;
+  font-size: 1.5em;
+}
+
+#toggle {
+  appearance: none;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    content: url("../assets/white-balance-sunny.svg");
+    display: block;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+    filter: invert(20%);
+  }
+
+  &:checked::before {
+    content: url("../assets/weather-night.svg");
+    filter: invert(80%);
+  }
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  column-gap: 0.5em;
+  margin: 0 1em;
+
+  #text-input {
+    appearance: none;
+    color: var(--text-color);
+    background-color: var(--list-item-bg);
+    width: 100%;
+    outline: none;
+    padding: 0.4em;
+    border-radius: 0.5em;
+    font-size: 1rem;
+    border: 1px solid var(--general-border);
+    box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+    transition: background-color var(--transition-time) ease-in-out,
+      color var(--transition-time) ease-in-out,
+      border-color var(--transition-time) ease-in-out;
+  }
+
+  #new-item {
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--list-item-bg);
+    border-radius: 0.5em;
+    border: 1px solid var(--general-border);
+    padding: 0.5em;
+    box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+    transition: background-color var(--transition-time) ease-in-out,
+      color var(--transition-time) ease-in-out,
+      border-color var(--transition-time) ease-in-out;
+  }
+}
+
+#list-root,
+#completed-root {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3em;
+  padding: 0.5em;
+  padding-top: 0.3em;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--list-item-bg);
+  border: 1px solid var(--list-item-border);
+  padding: 0.5em;
+  border-radius: 0.3em;
+  cursor: move;
+  transition: background-color var(--transition-time) ease-in-out,
+    color var(--transition-time) ease-in-out,
+    border-color var(--transition-time) ease-in-out;
+
+  &.dragging {
+    opacity: 0.4;
+  }
+
+  .button-bar {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+
+    .delete-button {
+      color: var(--color-warning);
+      cursor: pointer;
+    }
+  }
+
+  .list-item-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+  }
+}
+
+.checked-button {
+  color: var(--item-open);
+  cursor: pointer;
+}
+
+.item-completed {
+  color: var(--item-completed-color);
+  background-color: var(--item-completed-bg);
+
+  .checked-button {
+    color: var(--item-completed);
+  }
+}
+
+.edit-button,
+.edit-accept {
+  cursor: pointer;
+}
+
+.edit-input {
+  font-size: 1em;
+  padding: 0.2em;
+  border-radius: 0.3em;
+  border: 1px solid var(--list-item-border);
+  color: var(--text-color);
+  background-color: var(--edit-item-bg);
+  width: 100%;
+  margin-right: 1em;
+  outline: none;
+  box-shadow: 0 0 3px var(--box-shadow-color);
+}
+
+fieldset {
+  position: relative;
+  display: none;
+  margin: 0.4em 1em;
+  border-radius: 0.5em;
+  border: 1px solid var(--general-border);
+  box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+  transition: border-color var(--transition-time) ease-in-out;
+
+  legend {
+    margin: 0 auto;
+    padding: 0.5em;
+    font-weight: 600;
+  }
+
+  .delete-list {
+    position: absolute;
+    padding: 0 0.2em;
+    background-color: var(--bg-color);
+    top: -36px;
+    right: 10px;
+    transition: background-color var(--transition-time) ease-in-out;
+    color: red;
+    cursor: pointer;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: hsl(0, 0%, 50%);
+  flex-shrink: 0;
+  margin-top: 1.2em;
+
+  .source-link {
+    display: flex;
+    column-gap: 0.3em;
+    padding: 0 0.2em;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    color: hsl(88, 77%, 26%);
+  }
+}
+
+/* move all hover styles here. If we don't do this, it will lead to issues on
+iOS and similar when an item is deleted - the hover styles will be applied to
+the remaining item that takes its index.
+*/
+@media (hover: hover) {
+  .checked-button:not(.item-completed):hover {
+    color: var(--item-open-hover);
+  }
+
+  .list-item:hover,
+  .list-item:active {
+    background-color: var(--list-item-active);
+  }
+
+  .delete-button:hover {
+    color: red;
+  }
+
+  .delete-list:hover {
+    color: hsl(0, 100%, 33%);
+  }
+
+  #new-item:hover {
+    background-color: var(--list-item-active);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
