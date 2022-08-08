@@ -6,11 +6,11 @@ toastDockFrag.append(toastDiv);
 document.querySelector("main").prepend(toastDockFrag);
 
 export const toastMessage = (message, level) => {
+  // this shows then fades the toaster message.
   const toastDock = document.querySelector(".toaster-dock");
 
   const toastItem = document.createElement("div");
-  toastItem.className = "toaster-message";
-  toastItem.classList.add(level);
+  toastItem.classList.add("toaster-message", level);
   toastItem.textContent = message;
 
   toastDock.append(toastItem);

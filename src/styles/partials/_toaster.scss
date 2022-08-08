@@ -12,7 +12,7 @@
   opacity: 0.9;
   border-radius: 5px;
   margin-bottom: 0.2em;
-  max-width: 300px;
+  width: 300px;
   transition: opacity 0.5s ease;
 
   &.success {
@@ -21,16 +21,22 @@
     color: black;
   }
 
-  &.warning {
+  &.info {
     border: 1px solid rgb(219, 219, 0);
     background-color: lightyellow;
     color: black;
   }
 
-  &.error {
+  &.warning {
     border: 1px solid red;
     background-color: lightsalmon;
     color: black;
+  }
+
+  &.error {
+    border: 1px solid red;
+    background-color: firebrick;
+    color: white;
   }
 }
 

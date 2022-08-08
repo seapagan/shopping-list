@@ -25,12 +25,15 @@ const addDragListeners = el => {
 
 const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
-  if (itemName == "") return;
+  if (itemName == "") {
+    toastMessage("Can't add an empty item!", "warning");
+    return;
+  }
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
     testData.reverse().forEach(item => createListItem(item));
-    toastMessage("Added Test data!", "success");
+    toastMessage("Added Test data!", "info");
     return;
   }
 
@@ -107,7 +110,7 @@ const handleDeleteList = e => {
     .querySelectorAll("li")
     .forEach(item => item.remove());
 
-  toastMessage("List Cleared.", "success");
+  toastMessage("List Cleared.", "error");
   updateStoredList();
 };
 
