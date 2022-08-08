@@ -6,16 +6,19 @@ toastDockFrag.append(toastDiv);
 document.querySelector("main").prepend(toastDockFrag);
 
 export const toastMessage = (message, level) => {
-  console.log(`Message is '${message} and is level ${level}`);
   const toastDock = document.querySelector(".toaster-dock");
 
   const toastItem = document.createElement("div");
   toastItem.className = "toaster-message";
   toastItem.classList.add(level);
   toastItem.textContent = message;
+
   toastDock.append(toastItem);
 
   setTimeout(() => {
-    toastItem.remove();
+    toastItem.style.opacity = 0;
+    setTimeout(() => {
+      toastItem.remove();
+    }, 500);
   }, 2000);
 };
