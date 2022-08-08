@@ -1,4 +1,5 @@
 import { updateStoredList } from "./storage.js";
+import { toastMessage } from "./toaster.js";
 
 /* -------------------------------------------------------------------------- */
 /*                              The Delete button                             */
@@ -6,6 +7,7 @@ import { updateStoredList } from "./storage.js";
 const handleDelete = e => {
   // delete the current item
   e.target.parentElement.closest("li").remove();
+  toastMessage("Item Deleted!", "error");
   updateStoredList();
 };
 
@@ -94,6 +96,7 @@ const handleApplyEdit = e => {
   textContent.append(document.createTextNode(editField.value));
 
   editField.replaceWith(textContent);
+  toastMessage("Item Updated.", "success");
 
   updateStoredList();
 
@@ -113,6 +116,8 @@ const handleEnterPressedOnEdit = e => {
     .nextSibling.getElementsByClassName("edit-accept")[0];
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
+  toastMessage("Item Updated.", "success");
+
   updateStoredList();
 };
 
