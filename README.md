@@ -10,6 +10,11 @@ This application is to teach myself "plain" JavaScript as opposed to using a
 library like `React` or similar. Also, I always forget to take my shopping list
 with me, but never forget my phone!!
 
+This app uses [Webpack](https://webpack.js.org/) to provide a hot-reload
+development server and an optimised Production bundle. This is configured and
+controlled using my [SPBuild](https://github.com/seapagan/sp-build) system which
+can handle JS/TS, CSS/SCSS and much more automatically.
+
 For development purposes, you can pre-seed the list with 5 items by adding an
 item 'test' to the list.
 
