@@ -3,17 +3,16 @@
   display: flex;
   flex-direction: column;
   row-gap: 0.3em;
-  width: 100%;
   z-index: 10;
   top: 10px;
-  left: 10px;
+  right: 10px;
 }
 
 .toaster-message {
   position: relative;
   text-align: center;
-  padding: 0.3em;
-  opacity: 0.9;
+  padding: 0.5em;
+  opacity: 1;
   border-radius: 5px;
   width: 300px;
   transition: opacity 0.5s ease;
@@ -26,35 +25,40 @@
   }
 
   &.info {
-    border: 1px solid rgb(219, 219, 0);
-    background-color: lightyellow;
+    border: 1px solid hsl(60, 100%, 43%);
+    background-color: hsla(60, 100%, 69%, 80%);
     color: black;
   }
 
   &.warning {
     border: 1px solid red;
-    background-color: rgba(255, 160, 122, 80%);
+    background-color: hsla(17, 100%, 74%, 80%);
     color: black;
   }
 
   &.error {
     border: 1px solid red;
-    background-color: rgba(178, 34, 34, 75%);
+    background-color: hsla(0, 68%, 42%, 75%);
     color: white;
   }
 
   &::after {
     content: "\00D7";
     position: absolute;
-    font-size: 1.2em;
+    font-size: 1.4em;
     top: -8px;
     right: 5px;
+  }
+
+  &:hover {
+    filter: brightness(120%);
+    box-shadow: 8px 8px 16px -16px var(--box-shadow-color);
   }
 }
 
 @media screen and (max-width: 600px) {
   .toaster-message {
     max-width: none;
-    width: calc(100% - 20px);
+    width: calc(100vw - 20px);
   }
 }
