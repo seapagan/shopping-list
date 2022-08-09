@@ -5,6 +5,13 @@ toastDiv.className = "toaster-dock";
 toastDockFrag.append(toastDiv);
 document.querySelector("main").prepend(toastDockFrag);
 
+const fadeToast = toastItem => {
+  toastItem.style.opacity = 0;
+  setTimeout(() => {
+    toastItem.remove();
+  }, 500);
+};
+
 export const toastMessage = (message, level) => {
   // this shows then fades the toaster message.
   const toastDock = document.querySelector(".toaster-dock");
@@ -15,10 +22,11 @@ export const toastMessage = (message, level) => {
 
   toastDock.append(toastItem);
 
-  setTimeout(() => {
-    toastItem.style.opacity = 0;
-    setTimeout(() => {
-      toastItem.remove();
-    }, 500);
+  const timeOut = setTimeout(() => {
+    fadeToast(toastItem);
   }, 2000);
+  toastItem.addEventListener("click", () => {
+    clearTimeout(timeOut);
+    fadeToast(toastItem);
+  });
 };
