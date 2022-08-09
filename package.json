@@ -2,7 +2,7 @@
   "name": "shopping-list",
   "description": "A Shopping List Web application in plain JavaScript.",
   "author": "Grant Ramsay <seapagan@gmail.com> (https://www.gnramsay.com)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "build": "webpack build",
