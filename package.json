@@ -1,13 +1,22 @@
 {
   "name": "shopping-list",
+  "description": "A Shopping List Web application in plain JavaScript.",
+  "author": "Grant Ramsay <seapagan@gmail.com> (https://www.gnramsay.com)",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://www.gnramsay.com/",
   "scripts": {
     "build": "webpack build",
     "prod": "webpack build --mode=production",
     "dev": "webpack serve"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seapagan/shopping-list"
+  },
+  "bugs": {
+    "url": "https://github.com/seapagan/shopping-list/issues"
+  },
+  "homepage": "https://github.com/seapagan/shopping-list",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.18.10",
