@@ -1,5 +1,8 @@
 .toaster-dock {
-  position: absolute;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3em;
   width: 100%;
   z-index: 10;
   top: 10px;
@@ -7,13 +10,14 @@
 }
 
 .toaster-message {
+  position: relative;
   text-align: center;
   padding: 0.3em;
   opacity: 0.9;
   border-radius: 5px;
-  margin-bottom: 0.2em;
   width: 300px;
   transition: opacity 0.5s ease;
+  cursor: pointer;
 
   &.success {
     border: 1px solid green;
@@ -37,6 +41,14 @@
     border: 1px solid red;
     background-color: rgba(178, 34, 34, 75%);
     color: white;
+  }
+
+  &::after {
+    content: "\00D7";
+    position: absolute;
+    font-size: 1.2em;
+    top: -8px;
+    right: 5px;
   }
 }
 
