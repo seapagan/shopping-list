@@ -1,5 +1,6 @@
 @import "partials/reset";
 @import "partials/themes";
+@import "partials/toaster";
 
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
@@ -10,6 +11,7 @@
 }
 
 body {
+  padding-top: 2em;
   min-width: 320px;
   background-color: var(--bg-color);
   color: var(--text-color);

@@ -1,5 +1,6 @@
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
+import { toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
 
 import "./styles/site.scss";
@@ -24,11 +25,15 @@ const addDragListeners = el => {
 
 const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
-  if (itemName == "") return;
+  if (itemName == "") {
+    toastMessage("Can't add an empty item!", "warning");
+    return;
+  }
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
     testData.reverse().forEach(item => createListItem(item));
+    toastMessage("Added Test data!", "info");
     return;
   }
 
@@ -105,6 +110,7 @@ const handleDeleteList = e => {
     .querySelectorAll("li")
     .forEach(item => item.remove());
 
+  toastMessage("List Cleared.", "error");
   updateStoredList();
 };
 
@@ -136,7 +142,6 @@ const toggleColorMode = dark => {
 };
 
 const handleToggleColorMode = e => {
-  // bodyEl.classList = e.target.checked ? "dark-mode" : "light-mode";
   toggleColorMode(e.target.checked);
 };
 
