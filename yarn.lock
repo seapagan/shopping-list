@@ -2610,16 +2610,7 @@ eslint@^8.21.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-espree@^9.0.0, espree@^9.3.2:
-  version "9.3.2"
-  resolved "https://registry.yarnpkg.com/espree/-/espree-9.3.2.tgz#f58f77bd334731182801ced3380a8cc859091596"
-  integrity sha512-D211tC7ZwouTIuY5x9XnS0E9sWNChB7IYKX/Xp5eQj3nFXhqmiUDB9q27y76oFl8jTg3pXcQx/bpxMfs3CIZbA==
-  dependencies:
-    acorn "^8.7.1"
-    acorn-jsx "^5.3.2"
-    eslint-visitor-keys "^3.3.0"
-
-espree@^9.3.3:
+espree@^9.0.0, espree@^9.3.2, espree@^9.3.3:
   version "9.3.3"
   resolved "https://registry.yarnpkg.com/espree/-/espree-9.3.3.tgz#2dd37c4162bb05f433ad3c1a52ddf8a49dc08e9d"
   integrity sha512-ORs1Rt/uQTqUKjDdGCyrtYxbazf5umATSf/K4qxjmZHORR6HJk+2s/2Pqe+Kk49HHINC/xNIrGfgh8sZcll0ng==
@@ -3140,10 +3131,10 @@ html-validate-webpack-plugin@^1.2.1:
   dependencies:
     schema-utils "^1.0.0"
 
-html-validate@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/html-validate/-/html-validate-7.2.0.tgz#8b69cf5bd630ddc24f1d4c5cff4c56d7b4a0b63c"
-  integrity sha512-AA+DBN6el4FCwH+F4UEO70Kn2ZvVouOhubphVWGIOdssmBg7Q5XKwhOfY187svuFaFRrLqdOGnOtHESiEVErbw==
+html-validate@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/html-validate/-/html-validate-7.3.0.tgz#ba6bb829ecd264e59438590adb1cf3e92d94b7f5"
+  integrity sha512-gv8HCN/2O8P78ENNNzSfLxxqSLv6u28+49Nyib7uLQKOwkUj06mvH7XKFN7kA196vvxST6f9X+MJCwYi8rUhTQ==
   dependencies:
     "@babel/code-frame" "^7.10.0"
     "@html-validate/stylish" "^3.0.0"
