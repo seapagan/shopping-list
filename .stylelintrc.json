@@ -3,7 +3,8 @@
     "stylelint-config-standard",
     "stylelint-config-prettier",
     "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
+    "stylelint-config-prettier-scss",
+    "stylelint-config-css-modules"
   ],
   "ignoreFiles": [
     "dist/*",
@@ -38,5 +39,15 @@
         "severity": "warning"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.module.*"
+      ],
+      "rules": {
+        "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+      }
+    }
+  ]
 }
