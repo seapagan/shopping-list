@@ -26,7 +26,7 @@
     "@typescript-eslint/parser": "^5.43.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
-    "css-loader": "^6.7.1",
+    "css-loader": "^6.7.2",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.28.0",
