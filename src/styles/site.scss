@@ -32,6 +32,23 @@ header {
   padding: 0 1rem;
 }
 
+.visible-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visible-hidden:focus {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  width: auto;
+}
+
 .title {
   text-align: left;
   margin: 0.5em 0;
@@ -57,6 +74,31 @@ header {
     content: url("../assets/weather-night.svg");
     filter: invert(80%);
   }
+}
+
+.auth-buttons {
+  display: flex;
+  column-gap: 12px;
+  position: absolute;
+  top: 14px;
+  right: 52px;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.6;
+  z-index: 10;
 }
 
 .input-form {
