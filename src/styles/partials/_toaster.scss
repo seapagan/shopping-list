@@ -13,7 +13,8 @@
   text-align: center;
   padding: 0.5em;
   opacity: 1;
-  border-radius: 5px;
+  // border-radius: 5px;
+  border-radius: 0.5em;
   width: 300px;
   transition: opacity 0.5s ease;
   cursor: pointer;
@@ -45,9 +46,9 @@
   &::after {
     content: "\00D7";
     position: absolute;
-    font-size: 1.4em;
+    font-size: 1.6em;
     top: -8px;
-    right: 5px;
+    right: 8px;
   }
 
   &:hover {
