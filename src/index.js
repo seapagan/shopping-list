@@ -1,5 +1,6 @@
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
+import { supabase } from "./modules/supabase.js";
 import { toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
 
