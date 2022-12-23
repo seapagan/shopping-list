@@ -1,6 +1,6 @@
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
-import { supabase } from "./modules/supabase.js";
+// import { supabase } from "./modules/supabase.js";
 import { toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
 
@@ -10,6 +10,9 @@ const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 const bodyEl = document.querySelector("body");
+
+const loginButton = document.getElementById("login");
+const signupButton = document.getElementById("signup");
 
 const colorToggle = document.getElementById("toggle");
 
@@ -101,6 +104,22 @@ const mutationCallback = mutationList => {
 const observer = new MutationObserver(mutationCallback);
 observer.observe(boughtList, { childList: true });
 observer.observe(unboughtList, { childList: true });
+
+/* -------------------------------------------------------------------------- */
+/*             add click listeners to the signup and login buttons            */
+/* -------------------------------------------------------------------------- */
+const handleSignUp = e => {
+  e.preventDefault();
+  console.log("SignUp");
+};
+
+const handleLogin = e => {
+  e.preventDefault();
+  console.log("Login");
+};
+
+signupButton.addEventListener("click", handleSignUp);
+loginButton.addEventListener("click", handleLogin);
 
 /* -------------------------------------------------------------------------- */
 /*               Add click listeners to the list-delete buttons               */
