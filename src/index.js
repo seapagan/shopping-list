@@ -36,7 +36,7 @@ const createListItem = (itemName, isBought = false) => {
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
-    testData.reverse().forEach(item => createListItem(item));
+    [...testData].reverse().forEach(item => createListItem(item));
     toastMessage("Added Test data!", "info");
     return;
   }
