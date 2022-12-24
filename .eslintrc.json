@@ -16,6 +16,7 @@
   "ignorePatterns": ["dist/*"],
   "plugins": ["simple-import-sort", "import", "sonarjs"],
   "rules": {
+    "sonarjs/cognitive-complexity": 1,
     "import/no-duplicates": "error",
     "import/first": "error",
     "import/newline-after-import": [
