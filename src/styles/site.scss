@@ -90,6 +90,67 @@ header {
   }
 }
 
+.auth-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+
+  .button {
+    cursor: pointer;
+    appearance: none;
+    color: var(--text-color);
+    background-color: var(--list-item-bg);
+    border: 1px solid var(--general-border);
+    border-radius: 0.5em;
+    padding: 0.4em;
+    font-size: 0.8rem;
+    box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+    transition: background-color var(--transition-time) ease-in-out,
+      color var(--transition-time) ease-in-out,
+      border-color var(--transition-time) ease-in-out;
+  }
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+  row-gap: 0.5em;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  border: 1px solid var(--general-border);
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  box-shadow: 0 10px 13px -7px var(--box-shadow-color);
+
+  .dialog-title {
+    font-weight: bold;
+  }
+
+  .auth-input {
+    appearance: none;
+    color: var(--text-color);
+    background-color: var(--list-item-bg);
+    width: 100%;
+    outline: none;
+    font-size: 0.8rem;
+    padding: 0.4em;
+    border-radius: 0.5em;
+    border: 1px solid var(--general-border);
+    transition: background-color var(--transition-time) ease-in-out,
+      color var(--transition-time) ease-in-out,
+      border-color var(--transition-time) ease-in-out;
+
+    &:autofill {
+      color: var(--text-color);
+      background-color: var(--list-item-bg);
+      background-image: none;
+    }
+  }
+}
+
 .input-form {
   display: flex;
   flex-direction: row;
@@ -275,7 +336,8 @@ the remaining item that takes its index.
     color: hsl(0, 100%, 33%);
   }
 
-  #new-item:hover {
+  #new-item:hover,
+  .auth-button-wrapper .button:hover {
     background-color: var(--list-item-active);
   }
 }

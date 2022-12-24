@@ -1,3 +1,4 @@
+import { loginDialog, signupDialog } from "./modules/auth.js";
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
 // import { supabase } from "./modules/supabase.js";
@@ -10,12 +11,14 @@ const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
 const textInput = document.getElementById("text-input");
 const bodyEl = document.querySelector("body");
+const headerEl = document.querySelector("header");
 
 const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
 
 const colorToggle = document.getElementById("toggle");
 
+// Some constants for classnames that are used a lot in the code.
 const ITEM_COMPLETED = "item-completed";
 
 const addDragListeners = el => {
@@ -111,11 +114,29 @@ observer.observe(unboughtList, { childList: true });
 const handleSignUp = e => {
   e.preventDefault();
   console.log("SignUp");
+  const findDialog = document.getElementsByClassName("dialog");
+  if (findDialog.length === 0) {
+    headerEl.insertAdjacentElement("afterend", signupDialog());
+  } else if (findDialog.item(0).classList.contains("login-dialog")) {
+    findDialog.item(0).remove();
+    headerEl.insertAdjacentElement("afterend", signupDialog());
+  } else {
+    findDialog.item(0).remove();
+  }
 };
 
 const handleLogin = e => {
   e.preventDefault();
   console.log("Login");
+  const findDialog = document.getElementsByClassName("dialog");
+  if (findDialog.length === 0) {
+    headerEl.insertAdjacentElement("afterend", loginDialog());
+  } else if (findDialog.item(0).classList.contains("signup-dialog")) {
+    findDialog.item(0).remove();
+    headerEl.insertAdjacentElement("afterend", loginDialog());
+  } else {
+    findDialog.item(0).remove();
+  }
 };
 
 signupButton.addEventListener("click", handleSignUp);
