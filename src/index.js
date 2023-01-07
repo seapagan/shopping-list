@@ -1,3 +1,5 @@
+import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
+
 import { loginDialog, signupDialog } from "./modules/auth.js";
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
