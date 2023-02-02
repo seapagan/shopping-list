@@ -1,6 +1,7 @@
 import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
 
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
+import { addDragListeners, setupDragging } from "./modules/dragdrop";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
 import { setupToaster, toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
@@ -14,17 +15,6 @@ const bodyEl = document.querySelector("body");
 
 const colorToggle = document.getElementById("toggle");
 
-const ITEM_COMPLETED = "item-completed";
-
-const addDragListeners = el => {
-  el.addEventListener("dragstart", () => {
-    el.classList.add("dragging");
-  });
-  el.addEventListener("dragend", () => {
-    el.classList.remove("dragging");
-  });
-};
-
 const createListItem = (itemName, isBought = false) => {
   // create and insert a new Shopping List Item at top of list
   if (itemName == "") {
@@ -34,7 +24,8 @@ const createListItem = (itemName, isBought = false) => {
 
   if (itemName.trim().toLowerCase() == "test") {
     // add test data to the list during development...
-    testData.reverse().forEach(item => createListItem(item));
+    testData.reverse();
+    testData.forEach(item => createListItem(item));
     toastMessage("Added Test data!", "info");
     return;
   }
@@ -65,7 +56,7 @@ const createListItem = (itemName, isBought = false) => {
 
   // add the new item to the list
   if (isBought) {
-    newItem.classList.add(ITEM_COMPLETED);
+    newItem.classList.add("item-completed");
     boughtList.prepend(newItem);
   } else {
     unboughtList.prepend(newItem);
@@ -150,49 +141,7 @@ const handleToggleColorMode = e => {
 colorToggle.addEventListener("click", handleToggleColorMode);
 toggleColorMode(colorToggle.checked);
 
-/* -------------------------------------------------------------------------- */
-/*             add drag/drop listeners to the existing list items             */
-/* -------------------------------------------------------------------------- */
-const getDragAfterElement = (target, clientY) => {
-  const els = [...target.children].filter(el => el.draggable);
-  return els.reduce(
-    (closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = clientY - box.top - box.height / 2;
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      }
-      return closest;
-    },
-    { offset: Number.NEGATIVE_INFINITY }
-  ).element;
-};
-
+// enable Drag/Drop
+setupDragging();
 // enable the toaster dock.
 setupToaster();
-
-const draggables = document.querySelectorAll(".list-item");
-const dropTargets = document.querySelectorAll("fieldset>ul");
-
-draggables.forEach(draggable => {
-  addDragListeners(draggable);
-});
-
-dropTargets.forEach(dropTarget => {
-  dropTarget.addEventListener("dragover", e => {
-    e.preventDefault();
-    const afterElement = getDragAfterElement(dropTarget, e.clientY);
-    const draggable = document.querySelector(".dragging");
-    if (afterElement == null) {
-      dropTarget.append(draggable);
-    } else {
-      dropTarget.insertBefore(draggable, afterElement);
-    }
-    if (dropTarget.id === "list-root") {
-      draggable.classList.remove(ITEM_COMPLETED);
-    } else {
-      draggable.classList.add(ITEM_COMPLETED);
-    }
-    updateStoredList();
-  });
-});
