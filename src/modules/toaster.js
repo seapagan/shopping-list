@@ -21,6 +21,8 @@ export const toastMessage = (message, level) => {
   const toastItem = document.createElement("div");
   toastItem.classList.add("toaster-message", level);
   toastItem.textContent = message;
+  toastItem.ariaLabel = "toast message";
+  toastItem.dataset.testid = "toast";
 
   toastDock.append(toastItem);
 
