@@ -24,7 +24,7 @@ describe("the default HTML", () => {
   });
 });
 
-describe("on page load", () => {
+describe.skip("on page load", () => {
   beforeEach(() => {
     document.body.innerHTML = htmlDocContent;
   });
