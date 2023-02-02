@@ -2,7 +2,7 @@ import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
 
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
-import { toastMessage } from "./modules/toaster.js";
+import { setupToaster, toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
 
 import "./styles/site.scss";
@@ -167,6 +167,9 @@ const getDragAfterElement = (target, clientY) => {
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
 };
+
+// enable the toaster dock.
+setupToaster();
 
 const draggables = document.querySelectorAll(".list-item");
 const dropTargets = document.querySelectorAll("fieldset>ul");

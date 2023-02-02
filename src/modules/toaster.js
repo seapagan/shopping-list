@@ -1,9 +1,11 @@
-// create the toaster dock and add it to the top of the Body
-const toastDockFrag = document.createDocumentFragment();
-const toastDiv = document.createElement("div");
-toastDiv.className = "toaster-dock";
-toastDockFrag.append(toastDiv);
-document.querySelector("main").prepend(toastDockFrag);
+export const setupToaster = () => {
+  // create the toaster dock and add it to the top of the Body
+  const toastDockFrag = document.createDocumentFragment();
+  const toastDiv = document.createElement("div");
+  toastDiv.className = "toaster-dock";
+  toastDockFrag.append(toastDiv);
+  document.querySelector("main").prepend(toastDockFrag);
+};
 
 const fadeToast = toastItem => {
   toastItem.style.opacity = 0;
