@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
-/* ----------------------- SPBuild Sytem Verison 1.2.0 ---------------------- */
-/* --------------- (C) Grant Ramsay 2022 under the MIT Licence -------------- */
+/* ----------------------- SPBuild Sytem Verison 1.3.1 ---------------------- */
+/* --------------- (C) Grant Ramsay 2023 under the MIT Licence -------------- */
 /* ------------------ https://github.com/seapagan/sp-build ------------------ */
 /* -------------------------------------------------------------------------- */
 
@@ -40,7 +40,7 @@ module.exports = (_env, argv) => {
     },
     devtool: devMode ? "eval" : "source-map",
     resolve: {
-      extensions: [".tsx", ".ts", ".js"],
+      extensions: [".tsx", ".ts", ".js", ".jsx"],
     },
     output: {
       path: __dirname + "/dist",
@@ -62,6 +62,7 @@ module.exports = (_env, argv) => {
       devMode
         ? []
         : [
+            // we only want these ones for a production build
             new WarningsToErrorsPlugin(),
             new MiniCssExtractPlugin({
               filename: "[contenthash].css",
@@ -82,9 +83,12 @@ module.exports = (_env, argv) => {
       watchFiles: ["./src/*"],
       hot: true,
     },
+    stats: "minimal",
+
     module: {
       rules: [
         {
+          // for CSS Modules
           test: /\.(sa|sc|c)ss$/,
           use: [
             devMode ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -114,6 +118,7 @@ module.exports = (_env, argv) => {
           include: /\.module\.(sa|sc|c)ss$/,
         },
         {
+          // for Standard CSS (non-module) files.
           test: /\.(sa|sc|c)ss$/,
           use: [
             devMode ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -132,7 +137,8 @@ module.exports = (_env, argv) => {
           exclude: /\.module\.(sa|sc|c)ss$/,
         },
         {
-          test: /\.js$/,
+          // JS and JSX
+          test: /\.js?$/,
           exclude: /node_modules/,
           include: path.resolve(__dirname, "src"),
           use: {
@@ -143,7 +149,8 @@ module.exports = (_env, argv) => {
           },
         },
         {
-          test: /\.tsx?$/,
+          // TS and TSX
+          test: /\.ts?$/,
           exclude: /node_modules/,
           use: {
             loader: "ts-loader",
