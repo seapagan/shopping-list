@@ -1,7 +1,8 @@
 module.exports = {
   moduleFileExtensions: ["tsx", "ts", "js", "jsx"],
-  testMatch: ["**/tests/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  testMatch: ["**/tests/**/*.test.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   // moduleDirectories:[],
+  watchPathIgnorePatterns: ["<rootdir>/dist/"],
   moduleNameMapper: {
     // eslint-disable-next-line
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
@@ -14,7 +15,6 @@ module.exports = {
   collectCoverageFrom: ["src/**/*.[tj]s(x)?"],
   coverageReporters: ["json", "html", "lcov", "text"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/setupTests.js"],
-  testEnvironment: "jest-environment-jsdom",
   coverageThreshold: {
     global: {
       branches: 80,
@@ -23,4 +23,6 @@ module.exports = {
       statements: 80,
     },
   },
+  testEnvironment: "jest-environment-jsdom",
+  notify: false,
 };
