@@ -1,5 +1,6 @@
 module.exports = {
   moduleFileExtensions: ["tsx", "ts", "js", "jsx"],
+  testMatch: ["**/tests/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   // moduleDirectories:[],
   moduleNameMapper: {
     // eslint-disable-next-line
