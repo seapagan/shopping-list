@@ -9,7 +9,7 @@ beforeEach(() => {
   setupToaster();
 });
 
-test("toaster dock should be added automatically", () => {
+test("toaster dock should be present", () => {
   expect(document.querySelector(".toaster-dock")).toBeTruthy();
 });
 
