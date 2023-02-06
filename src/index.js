@@ -3,11 +3,30 @@ import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
 import { loginDialog, signupDialog } from "./modules/auth.js";
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { addDragListeners, setupDragging } from "./modules/dragdrop";
+import { RenderApp } from "./modules/render.js";
 import { getStoredList, updateStoredList } from "./modules/storage.js";
 import { setupToaster, toastMessage } from "./modules/toaster.js";
 import { testData } from "./test-data.js";
 
 import "./styles/site.scss";
+
+RenderApp();
+
+/* -------------------------------------------------------------------------- */
+/*        set up a MutationObserver to hide/show the individual lists.        */
+/* -------------------------------------------------------------------------- */
+const mutationCallback = mutationList => {
+  // Hide the list <frameset> if it is empty. this is a bit overkill for the use
+  // case, but I wanted to learn how to use MutationObserver!
+  mutationList.forEach(mutation => {
+    const listLength = mutation.target.querySelectorAll("li").length;
+    if (listLength === 0) {
+      mutation.target.parentElement.closest("fieldset").style.display = "none";
+    } else {
+      mutation.target.parentElement.closest("fieldset").style.display = "block";
+    }
+  });
+};
 
 const unboughtList = document.getElementById("list-root");
 const boughtList = document.getElementById("completed-root");
@@ -78,22 +97,6 @@ const handleSubmit = e => {
 };
 
 document.getElementById("new-item").addEventListener("click", handleSubmit);
-
-/* -------------------------------------------------------------------------- */
-/*        set up a MutationObserver to hide/show the individual lists.        */
-/* -------------------------------------------------------------------------- */
-const mutationCallback = mutationList => {
-  // Hide the list <frameset> if it is empty. this is a bit overkill for the use
-  // case, but I wanted to learn how to use MutationObserver!
-  mutationList.forEach(mutation => {
-    const listLength = mutation.target.querySelectorAll("li").length;
-    if (listLength === 0) {
-      mutation.target.parentElement.closest("fieldset").style.display = "none";
-    } else {
-      mutation.target.parentElement.closest("fieldset").style.display = "block";
-    }
-  });
-};
 
 const observer = new MutationObserver(mutationCallback);
 observer.observe(boughtList, { childList: true });

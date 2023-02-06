@@ -5,81 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1"
-    />
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <script
       src="https://kit.fontawesome.com/c0e20e980e.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <title>Shopping List</title>
   </head>
 
   <body class="light-mode">
-    <main>
-      <header>
-        <h1 class="title">Shopping List</h1>
-        <div class="auth-buttons">
-          <a id="signup" href="#" aria-label="Sign Up">
-            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
-            <span class="visible-hidden">Sign Up</span>
-          </a>
-          <a id="login" href="#" aria-label="Login">
-            <i class="fa-solid fa-sign-in" aria-hidden="true"></i>
-            <span class="visible-hidden">Login</span>
-          </a>
-        </div>
-        <input
-          type="checkbox"
-          name="toggle"
-          id="toggle"
-          aria-label="Toggle Dark Mode"
-        />
-      </header>
-      <form class="input-form">
-        <!-- [html-validate-disable-next input-missing-label] -->
-        <input
-          id="text-input"
-          type="text"
-          placeholder="Add Item"
-          autocomplete="off"
-        />
-        <button id="new-item" type="submit" aria-label="Add Item">
-          <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
-        </button>
-      </form>
-      <fieldset>
-        <legend>To Buy</legend>
-        <span class="delete-list"
-          ><span class="fa-regular fa-trash-can"></span
-        ></span>
-        <ul id="list-root"></ul>
-      </fieldset>
-      <fieldset>
-        <legend>Bought</legend>
-        <span class="delete-list"
-          ><span class="fa-regular fa-trash-can"></span
-        ></span>
-        <ul id="completed-root"></ul>
-      </fieldset>
-      <footer>
-        &copy; Grant Ramsay 2023 (
-        <a
-          class="source-link"
-          href="https://github.com/seapagan/shopping-list"
-          target="_blank"
-        >
-          <span class="fa-brands fa-github"></span>
-          Source
-        </a>
-        )
-      </footer>
-    </main>
+    <main id="App"></main>
   </body>
 </html>
