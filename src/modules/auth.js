@@ -1,3 +1,4 @@
+import { setState } from "./state.js";
 import { supabase } from "./supabase.js";
 import { toastMessage } from "./toaster.js";
 
@@ -31,8 +32,12 @@ const handleSubmitButton = async e => {
     e.target.remove();
     // just log to console for now
     const { session, user } = data;
-    console.log("Session:", session);
-    console.log("User:", user);
+
+    // update the state.
+    setState({
+      session: session,
+      user: user,
+    });
   } else if (classList.contains("signup-dialog")) {
     const elements = e.target.elements;
     const username = elements["user_input"].value;
