@@ -30,7 +30,9 @@ const handleSubmitButton = async e => {
     toastMessage("Logged in Successfully", "success");
     e.target.remove();
     // just log to console for now
-    console.log(data);
+    const { session, user } = data;
+    console.log("Session:", session);
+    console.log("User:", user);
   } else if (classList.contains("signup-dialog")) {
     const elements = e.target.elements;
     const username = elements["user_input"].value;
