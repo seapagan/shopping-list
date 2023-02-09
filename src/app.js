@@ -13,26 +13,6 @@ import "./styles/site.scss";
 export const App = () => {
   RenderApp();
 
-  /* ------------------------------------------------------------------------ */
-  /*       set up a MutationObserver to hide/show the individual lists.       */
-  /* ------------------------------------------------------------------------ */
-  const mutationCallback = mutationList => {
-    // Hide the list <frameset> if it is empty. this is a bit overkill for the
-    // use case, but I wanted to learn how to use MutationObserver!
-    mutationList.forEach(mutation => {
-      const listLength = mutation.target.querySelectorAll("li").length;
-      if (listLength === 0) {
-        mutation.target.parentElement.closest("fieldset").style.display =
-          "none";
-      } else {
-        mutation.target.parentElement.closest("fieldset").style.display =
-          "block";
-      }
-    });
-  };
-
-  const unboughtList = document.getElementById("list-root");
-  const boughtList = document.getElementById("completed-root");
   const textInput = document.getElementById("text-input");
   const bodyEl = document.querySelector("body");
   const headerEl = document.querySelector("header");
@@ -44,6 +24,9 @@ export const App = () => {
 
   const createListItem = (itemName, isBought = false) => {
     // create and insert a new Shopping List Item at top of list
+    const unboughtList = document.getElementById("list-root");
+    const boughtList = document.getElementById("completed-root");
+
     if (itemName == "") {
       toastMessage("Can't add an empty item!", "warning");
       return;
@@ -100,10 +83,6 @@ export const App = () => {
   };
 
   document.getElementById("new-item").addEventListener("click", handleSubmit);
-
-  const observer = new MutationObserver(mutationCallback);
-  observer.observe(boughtList, { childList: true });
-  observer.observe(unboughtList, { childList: true });
 
   /* ------------------------------------------------------------------------ */
   /*            add click listeners to the signup and login buttons           */
