@@ -1,3 +1,4 @@
+import { renderHeader } from "./render.js";
 import { setState } from "./state.js";
 import { supabase } from "./supabase.js";
 import { toastMessage } from "./toaster.js";
@@ -38,6 +39,7 @@ const handleSubmitButton = async e => {
       session: session,
       user: user,
     });
+    renderHeader();
   } else if (classList.contains("signup-dialog")) {
     const elements = e.target.elements;
     const username = elements["user_input"].value;

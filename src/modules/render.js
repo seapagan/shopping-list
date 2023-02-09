@@ -1,4 +1,5 @@
-import { loginDialog, signupDialog } from "./auth.js";
+import { loginDialog, signupDialog } from "./auth";
+import { initState } from "./state";
 
 const header_template = `
   <header>
@@ -68,6 +69,13 @@ const signInUpButton = `
     </a>
   `;
 
+const signOutButton = `
+    <a id="signout" href="#" aria-label="Sign Out">
+      <i class="fa-regular fa-sign-out" aria-hidden="true"></i>
+      <span class="visible-hidden">Sign Out</span>
+    </a>
+`;
+
 const addMutations = () => {
   // set up a MutationObserver to hide/show the individual lists
   const mutationCallback = mutationList => {
@@ -122,18 +130,30 @@ const handleLogin = e => {
   }
 };
 
+const handleSignOut = e => {
+  e.preventDefault();
+  initState({ session: null, user: null, test: "lovely" });
+  renderHeader();
+};
+
+export const renderHeader = () => {
+  const authButtons = document.getElementById("auth-buttons");
+  if (!document.state.session) {
+    authButtons.innerHTML = signInUpButton;
+
+    document.getElementById("signup").addEventListener("click", handleSignUp);
+    document.getElementById("login").addEventListener("click", handleLogin);
+  } else {
+    authButtons.innerHTML = signOutButton;
+    document.getElementById("signout").addEventListener("click", handleSignOut);
+  }
+};
+
 export const RenderApp = () => {
   const app = document.getElementById("App");
   app.innerHTML =
     header_template + form_Template + fieldset_template + footer_template;
 
-  if (!document.state.session) {
-    const authButtons = document.getElementById("auth-buttons");
-    authButtons.innerHTML = signInUpButton;
-
-    document.getElementById("signup").addEventListener("click", handleSignUp);
-    document.getElementById("login").addEventListener("click", handleLogin);
-  }
-
+  renderHeader();
   addMutations();
 };
