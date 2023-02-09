@@ -1,3 +1,5 @@
+import { loginDialog, signupDialog } from "./auth.js";
+
 const header_template = `
   <header>
       <h1 class="title">Shopping List</h1>
@@ -90,6 +92,36 @@ const addMutations = () => {
   observer.observe(unboughtList, { childList: true });
 };
 
+const handleSignUp = e => {
+  e.preventDefault();
+  const headerEl = document.querySelector("header");
+  console.log("SignUp");
+  const findDialog = document.getElementsByClassName("dialog");
+  if (findDialog.length === 0) {
+    headerEl.insertAdjacentElement("afterend", signupDialog());
+  } else if (findDialog.item(0).classList.contains("login-dialog")) {
+    findDialog.item(0).remove();
+    headerEl.insertAdjacentElement("afterend", signupDialog());
+  } else {
+    findDialog.item(0).remove();
+  }
+};
+
+const handleLogin = e => {
+  e.preventDefault();
+  const headerEl = document.querySelector("header");
+  console.log("Login");
+  const findDialog = document.getElementsByClassName("dialog");
+  if (findDialog.length === 0) {
+    headerEl.insertAdjacentElement("afterend", loginDialog());
+  } else if (findDialog.item(0).classList.contains("signup-dialog")) {
+    findDialog.item(0).remove();
+    headerEl.insertAdjacentElement("afterend", loginDialog());
+  } else {
+    findDialog.item(0).remove();
+  }
+};
+
 export const RenderApp = () => {
   const app = document.getElementById("App");
   app.innerHTML =
@@ -98,6 +130,9 @@ export const RenderApp = () => {
   if (!document.state.session) {
     const authButtons = document.getElementById("auth-buttons");
     authButtons.innerHTML = signInUpButton;
+
+    document.getElementById("signup").addEventListener("click", handleSignUp);
+    document.getElementById("login").addEventListener("click", handleLogin);
   }
 
   addMutations();

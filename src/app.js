@@ -1,6 +1,5 @@
 import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
 
-import { loginDialog, signupDialog } from "./modules/auth.js";
 import { checkButton, deleteButton, editButton } from "./modules/buttons.js";
 import { addDragListeners, setupDragging } from "./modules/dragdrop";
 import { RenderApp } from "./modules/render.js";
@@ -15,10 +14,6 @@ export const App = () => {
 
   const textInput = document.getElementById("text-input");
   const bodyEl = document.querySelector("body");
-  const headerEl = document.querySelector("header");
-
-  const loginButton = document.getElementById("login");
-  const signupButton = document.getElementById("signup");
 
   const colorToggle = document.getElementById("toggle");
 
@@ -87,36 +82,6 @@ export const App = () => {
   /* ------------------------------------------------------------------------ */
   /*            add click listeners to the signup and login buttons           */
   /* ------------------------------------------------------------------------ */
-  const handleSignUp = e => {
-    e.preventDefault();
-    console.log("SignUp");
-    const findDialog = document.getElementsByClassName("dialog");
-    if (findDialog.length === 0) {
-      headerEl.insertAdjacentElement("afterend", signupDialog());
-    } else if (findDialog.item(0).classList.contains("login-dialog")) {
-      findDialog.item(0).remove();
-      headerEl.insertAdjacentElement("afterend", signupDialog());
-    } else {
-      findDialog.item(0).remove();
-    }
-  };
-
-  const handleLogin = e => {
-    e.preventDefault();
-    console.log("Login");
-    const findDialog = document.getElementsByClassName("dialog");
-    if (findDialog.length === 0) {
-      headerEl.insertAdjacentElement("afterend", loginDialog());
-    } else if (findDialog.item(0).classList.contains("signup-dialog")) {
-      findDialog.item(0).remove();
-      headerEl.insertAdjacentElement("afterend", loginDialog());
-    } else {
-      findDialog.item(0).remove();
-    }
-  };
-
-  signupButton.addEventListener("click", handleSignUp);
-  loginButton.addEventListener("click", handleLogin);
 
   /* ------------------------------------------------------------------------ */
   /*              Add click listeners to the list-delete buttons              */
