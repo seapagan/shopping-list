@@ -1,4 +1,4 @@
-const html_template = `
+const header_template = `
   <header>
       <h1 class="title">Shopping List</h1>
       <div class="auth-buttons">
@@ -17,6 +17,9 @@ const html_template = `
         id="toggle"
         aria-label="Toggle Dark Mode" />
     </header>
+    `;
+
+const form_Template = `
     <form class="input-form">
       <input
         id="text-input"
@@ -27,7 +30,9 @@ const html_template = `
       <button id="new-item" type="submit" aria-label="Add Item">
         <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
       </button>
-    </form>
+    </form>`;
+
+const fieldset_template = `
     <fieldset>
       <legend>To Buy</legend>
       <span class="delete-list"
@@ -41,7 +46,9 @@ const html_template = `
         ><span class="fa-regular fa-trash-can"></span
       ></span>
       <ul id="completed-root"></ul>
-    </fieldset>
+    </fieldset>`;
+
+const footer_template = `
     <footer>
       &copy; Grant Ramsay 2023 (
       <a
@@ -57,5 +64,6 @@ const html_template = `
 
 export const RenderApp = () => {
   const app = document.getElementById("App");
-  app.innerHTML = html_template;
+  app.innerHTML =
+    header_template + form_Template + fieldset_template + footer_template;
 };
