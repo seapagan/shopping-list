@@ -1,4 +1,4 @@
-import { loginDialog, signupDialog } from "./auth";
+import { loginDialog, signOut, signupDialog } from "./auth";
 import { initState } from "./state";
 
 const header_template = `
@@ -132,6 +132,7 @@ const handleLogin = e => {
 
 const handleSignOut = e => {
   e.preventDefault();
+  signOut();
   initState({ session: null, user: null, test: "lovely" });
   renderHeader();
 };

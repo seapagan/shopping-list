@@ -151,3 +151,7 @@ export const signupDialog = () => {
 
   return signup;
 };
+
+export const signOut = async () => {
+  await supabase.auth.signOut();
+};
