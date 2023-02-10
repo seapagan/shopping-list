@@ -1,5 +1,4 @@
 import { renderHeader } from "./render.js";
-import { setState } from "./state.js";
 import { supabase } from "./supabase.js";
 import { toastMessage } from "./toaster.js";
 
@@ -21,7 +20,7 @@ const handleSubmitButton = async e => {
       toastMessage("Username or Password cannot be Blank", "error");
       return;
     }
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: username,
       password: password,
     });
@@ -31,14 +30,7 @@ const handleSubmitButton = async e => {
     }
     toastMessage("Logged in Successfully", "success");
     e.target.remove();
-    // just log to console for now
-    const { session, user } = data;
 
-    // update the state.
-    setState({
-      session: session,
-      user: user,
-    });
     renderHeader();
   } else if (classList.contains("signup-dialog")) {
     const elements = e.target.elements;
@@ -59,7 +51,7 @@ const handleSubmitButton = async e => {
       toastMessage("Passwords do not match", "error");
       return;
     }
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: username,
       password: password,
     });
@@ -69,8 +61,8 @@ const handleSubmitButton = async e => {
     }
     toastMessage("Signed up Successfully", "success");
     e.target.remove();
-    // log to console for now
-    console.log(data, error);
+
+    renderHeader();
   }
 };
 

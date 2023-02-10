@@ -102,7 +102,6 @@ const addMutations = () => {
 const handleSignUp = e => {
   e.preventDefault();
   const headerEl = document.querySelector("header");
-  console.log("SignUp");
   const findDialog = document.getElementsByClassName("dialog");
   if (findDialog.length === 0) {
     headerEl.insertAdjacentElement("afterend", signupDialog());
@@ -117,7 +116,6 @@ const handleSignUp = e => {
 const handleLogin = e => {
   e.preventDefault();
   const headerEl = document.querySelector("header");
-  console.log("Login");
   const findDialog = document.getElementsByClassName("dialog");
   if (findDialog.length === 0) {
     headerEl.insertAdjacentElement("afterend", loginDialog());
