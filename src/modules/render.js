@@ -1,5 +1,4 @@
-import { loginDialog, signOut, signupDialog } from "./auth";
-import { initState } from "./state";
+import { getSession, loginDialog, signOut, signupDialog } from "./auth";
 
 const header_template = `
   <header>
@@ -130,16 +129,16 @@ const handleLogin = e => {
   }
 };
 
-const handleSignOut = e => {
+const handleSignOut = async e => {
   e.preventDefault();
-  signOut();
-  initState({ session: null, user: null, test: "lovely" });
+  await signOut();
   renderHeader();
 };
 
-export const renderHeader = () => {
+export const renderHeader = async () => {
+  const thisSession = await getSession();
   const authButtons = document.getElementById("auth-buttons");
-  if (!document.state.session) {
+  if (!thisSession) {
     authButtons.innerHTML = signInUpButton;
 
     document.getElementById("signup").addEventListener("click", handleSignUp);
@@ -150,7 +149,7 @@ export const renderHeader = () => {
   }
 };
 
-export const RenderApp = () => {
+export const RenderApp = async () => {
   const app = document.getElementById("App");
   app.innerHTML =
     header_template + form_Template + fieldset_template + footer_template;

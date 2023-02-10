@@ -154,4 +154,10 @@ export const signupDialog = () => {
 
 export const signOut = async () => {
   await supabase.auth.signOut();
+  toastMessage("You have Logged Out", "success");
+};
+
+export const getSession = async () => {
+  const { data } = await supabase.auth.getSession();
+  return data.session;
 };
