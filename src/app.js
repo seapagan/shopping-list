@@ -9,68 +9,82 @@ import { testData } from "./test-data.js";
 
 import "./styles/site.scss";
 
-export const App = () => {
-  RenderApp();
+// some global elements used in multiple places//
+const textInput = document.getElementById("text-input");
 
-  const textInput = document.getElementById("text-input");
+const setupTheme = () => {
   const bodyEl = document.querySelector("body");
-
   const colorToggle = document.getElementById("toggle");
 
-  const createListItem = (itemName, isBought = false) => {
-    // create and insert a new Shopping List Item at top of list
-    const unboughtList = document.getElementById("list-root");
-    const boughtList = document.getElementById("completed-root");
-
-    if (itemName == "") {
-      toastMessage("Can't add an empty item!", "warning");
-      return;
-    }
-
-    if (itemName.trim().toLowerCase() == "test") {
-      // add test data to the list during development...
-      testData.reverse();
-      testData.forEach(item => createListItem(item));
-      toastMessage("Added Test data!", "info");
-      return;
-    }
-
-    const newItem = document.createElement("li");
-    newItem.classList = "list-item";
-
-    // create element for the check and text
-    const checkAndTextElement = document.createElement("div");
-    checkAndTextElement.className = "list-item-main";
-
-    const textContent = document.createElement("span");
-    textContent.classList = "item-text";
-    textContent.append(document.createTextNode(itemName));
-
-    checkAndTextElement.append(checkButton(), textContent);
-
-    // create the button bar
-    const buttonBar = document.createElement("div");
-    buttonBar.className = "button-bar";
-    buttonBar.append(editButton(), deleteButton());
-
-    // add both to the new item element
-    newItem.append(checkAndTextElement, buttonBar);
-    // make whole thing draggable
-    newItem.draggable = true;
-    addDragListeners(newItem);
-
-    // add the new item to the list
-    if (isBought) {
-      newItem.classList.add("item-completed");
-      boughtList.prepend(newItem);
-    } else {
-      unboughtList.prepend(newItem);
-    }
-
-    // clear the input field
-    textInput.value = "";
-    updateStoredList();
+  const toggleColorMode = dark => {
+    bodyEl.classList = dark ? "dark-mode" : "light-mode";
   };
+
+  const handleToggleColorMode = e => {
+    toggleColorMode(e.target.checked);
+  };
+
+  colorToggle.addEventListener("click", handleToggleColorMode);
+  toggleColorMode(colorToggle.checked);
+};
+
+const createListItem = (itemName, isBought = false) => {
+  // create and insert a new Shopping List Item at top of list
+  const unboughtList = document.getElementById("list-root");
+  const boughtList = document.getElementById("completed-root");
+
+  if (itemName == "") {
+    toastMessage("Can't add an empty item!", "warning");
+    return;
+  }
+
+  if (itemName.trim().toLowerCase() == "test") {
+    // add test data to the list during development...
+    testData.reverse();
+    testData.forEach(item => createListItem(item));
+    toastMessage("Added Test data!", "info");
+    return;
+  }
+
+  const newItem = document.createElement("li");
+  newItem.classList = "list-item";
+
+  // create element for the check and text
+  const checkAndTextElement = document.createElement("div");
+  checkAndTextElement.className = "list-item-main";
+
+  const textContent = document.createElement("span");
+  textContent.classList = "item-text";
+  textContent.append(document.createTextNode(itemName));
+
+  checkAndTextElement.append(checkButton(), textContent);
+
+  // create the button bar
+  const buttonBar = document.createElement("div");
+  buttonBar.className = "button-bar";
+  buttonBar.append(editButton(), deleteButton());
+
+  // add both to the new item element
+  newItem.append(checkAndTextElement, buttonBar);
+  // make whole thing draggable
+  newItem.draggable = true;
+  addDragListeners(newItem);
+
+  // add the new item to the list
+  if (isBought) {
+    newItem.classList.add("item-completed");
+    boughtList.prepend(newItem);
+  } else {
+    unboughtList.prepend(newItem);
+  }
+
+  // clear the input field
+  textInput.value = "";
+  updateStoredList();
+};
+
+export const App = () => {
+  RenderApp();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -78,10 +92,6 @@ export const App = () => {
   };
 
   document.getElementById("new-item").addEventListener("click", handleSubmit);
-
-  /* ------------------------------------------------------------------------ */
-  /*            add click listeners to the signup and login buttons           */
-  /* ------------------------------------------------------------------------ */
 
   /* ------------------------------------------------------------------------ */
   /*              Add click listeners to the list-delete buttons              */
@@ -115,22 +125,10 @@ export const App = () => {
 
   getStoredList().forEach(data => populateList(data));
 
-  /* ------------------------------------------------------------------------ */
-  /*                         Handle color mode toggle                         */
-  /* ------------------------------------------------------------------------ */
-  const toggleColorMode = dark => {
-    bodyEl.classList = dark ? "dark-mode" : "light-mode";
-  };
-
-  const handleToggleColorMode = e => {
-    toggleColorMode(e.target.checked);
-  };
-
-  colorToggle.addEventListener("click", handleToggleColorMode);
-  toggleColorMode(colorToggle.checked);
-
+  // set up the theme toggle
+  setupTheme();
   // enable Drag/Drop
   setupDragging();
-  // enable the toaster dock.
+  // enable the toaster dock
   setupToaster();
 };
