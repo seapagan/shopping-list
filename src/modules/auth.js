@@ -1,4 +1,4 @@
-import { renderHeader } from "./render.js";
+import { RenderApp, renderHeader } from "./render.js";
 import { supabase } from "./supabase.js";
 import { toastMessage } from "./toaster.js";
 
@@ -31,7 +31,7 @@ const handleSubmitButton = async e => {
     toastMessage("Logged in Successfully", "success");
     e.target.remove();
 
-    renderHeader();
+    RenderApp();
   } else if (classList.contains("signup-dialog")) {
     const elements = e.target.elements;
     const username = elements["user_input"].value;
@@ -146,10 +146,18 @@ export const signupDialog = () => {
 
 export const signOut = async () => {
   await supabase.auth.signOut();
+  RenderApp();
   toastMessage("You have Logged Out", "success");
 };
 
 export const getSession = async () => {
   const { data } = await supabase.auth.getSession();
   return data.session;
+};
+
+export const getUser = async () => {
+  const { data, error } = await supabase.auth.getUser();
+  if (error) return null;
+
+  return data.user.id;
 };

@@ -1,3 +1,5 @@
-import { App } from "./app";
+import "./modules/vendor/DragDropTouch.js"; // polyfill drag/drop on iOS
 
-App();
+import { RenderApp } from "./modules/render.js";
+
+RenderApp();
