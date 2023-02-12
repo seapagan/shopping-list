@@ -25,6 +25,14 @@ export const form_Template = `
       </button>
     </form>`;
 
+export const no_auth_template = `
+    <section class="logged-out">
+      <h2>Welcome to your Shopping List!</h2>
+      <p>Please <span id="LoginText">Log in</span> or <span id="SignupText">
+      Sign Up</span> to continue</p>
+    </section>
+`;
+
 export const fieldset_template = `
     <fieldset>
       <legend>To Buy</legend>

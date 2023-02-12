@@ -20,6 +20,7 @@ import {
   footer_template,
   form_Template,
   header_template,
+  no_auth_template,
   signInUpButton,
   signOutButton,
 } from "./templates.js";
@@ -185,6 +186,19 @@ const handleDeleteList = e => {
 };
 
 /* -------------------------------------------------------------------------- */
+/*                     add handlers to delete entire lists                    */
+/* -------------------------------------------------------------------------- */
+const addDeleteHandlers = () => {
+  document
+    .querySelectorAll(".delete-list")
+    .forEach(el => el.addEventListener("click", handleDeleteList));
+  const newItemEl = document.getElementById("new-item");
+  if (newItemEl) {
+    newItemEl.addEventListener("click", addNewItem);
+  }
+};
+
+/* -------------------------------------------------------------------------- */
 /*            add handlers to take care of dark/light theme toggle            */
 /* -------------------------------------------------------------------------- */
 const setupTheme = () => {
@@ -254,23 +268,41 @@ export const renderHeader = async () => {
 };
 
 /* -------------------------------------------------------------------------- */
+/*             show the form if logged in, otherwise default text             */
+/* -------------------------------------------------------------------------- */
+const showForm = async session => {
+  if (session) {
+    return form_Template;
+  }
+
+  return no_auth_template;
+};
+
+/* -------------------------------------------------------------------------- */
 /*                         render or re-render the app                        */
 /* -------------------------------------------------------------------------- */
 export const RenderApp = async () => {
+  const thisSession = await getSession();
   const app = document.getElementById("App");
   app.innerHTML =
-    header_template + form_Template + fieldset_template + footer_template;
+    header_template +
+    (await showForm(thisSession)) +
+    fieldset_template +
+    footer_template;
 
-  renderHeader();
+  // add click handlers to the text when not logged in
+  if (!thisSession) {
+    document.getElementById("LoginText").addEventListener("click", handleLogin);
+    document
+      .getElementById("SignupText")
+      .addEventListener("click", handleSignUp);
+  }
+
   setupToaster();
+  renderHeader();
   setupTheme();
   addMutations();
   setupDragging();
-
-  document
-    .querySelectorAll(".delete-list")
-    .forEach(el => el.addEventListener("click", handleDeleteList));
-  document.getElementById("new-item").addEventListener("click", addNewItem);
-
+  addDeleteHandlers();
   displayLists();
 };
