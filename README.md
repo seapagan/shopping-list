@@ -32,7 +32,6 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Toggle an item as done. If toggled, it is moved to a different list below. If
   toggled again, it is moved back to the main list.
 - Edit an item name inline.
-- Save current items to LocalStorage so they persist between sessions.
 - Drag and drop ordering of items, even between lists. ~~Fixed to work on iOS
   devices using a polyfill from [Bernardo
   Castilho](https://github.com/Bernardo-Castilho/dragdroptouch)~~ [Polyfill
