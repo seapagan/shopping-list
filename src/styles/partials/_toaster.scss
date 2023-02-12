@@ -13,27 +13,28 @@
   text-align: center;
   padding: 0.5em;
   opacity: 1;
-  border-radius: 5px;
+  border-radius: 0.5em;
   width: 300px;
   transition: opacity 0.5s ease;
   cursor: pointer;
   user-select: none;
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 15px 5px rgba(0, 0, 0, 0%);
 
   &.success {
     border: 1px solid green;
-    background-color: rgba(50, 205, 50, 80%);
+    background-color: rgba(50, 205, 50, 90%);
     color: black;
   }
 
   &.info {
     border: 1px solid hsl(60, 100%, 43%);
-    background-color: hsla(60, 100%, 69%, 80%);
+    background-color: hsla(60, 100%, 69%, 90%);
     color: black;
   }
 
   &.warning {
     border: 1px solid red;
-    background-color: hsla(17, 100%, 74%, 80%);
+    background-color: hsla(17, 100%, 74%, 90%);
     color: black;
   }
 
@@ -46,9 +47,9 @@
   &::after {
     content: "\00D7";
     position: absolute;
-    font-size: 1.4em;
+    font-size: 1.6em;
     top: -8px;
-    right: 5px;
+    right: 8px;
   }
 
   &:hover {

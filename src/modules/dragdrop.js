@@ -1,7 +1,6 @@
 /* -------------------------------------------------------------------------- */
 /*             add drag/drop listeners to the existing list items             */
 /* -------------------------------------------------------------------------- */
-import { updateStoredList } from "./storage.js";
 
 const ITEM_COMPLETED = "item-completed";
 
@@ -52,7 +51,9 @@ export const setupDragging = () => {
       } else {
         draggable.classList.add(ITEM_COMPLETED);
       }
-      updateStoredList();
+      // updateStoredList();
+      // for now the dragged order will not persist over a reload. This needs to
+      // be implemented further in the database.
     });
   });
 };

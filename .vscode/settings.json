@@ -34,6 +34,6 @@
   "files.trimTrailingWhitespace": true,
   "git.enableCommitSigning": true,
   "prettier.arrowParens": "avoid",
-  "prettier.jsxBracketSameLine": true,
+  "prettier.bracketSameLine": true,
   "prettier.tabWidth": 2
 }

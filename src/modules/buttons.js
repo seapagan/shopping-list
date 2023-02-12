@@ -1,13 +1,25 @@
-import { updateStoredList } from "./storage.js";
+import {
+  deleteItem,
+  editItemName,
+  toggleItemBought,
+  updateStoredList,
+} from "./storage.js";
 import { toastMessage } from "./toaster.js";
 
 /* -------------------------------------------------------------------------- */
 /*                              The Delete button                             */
 /* -------------------------------------------------------------------------- */
-const handleDelete = e => {
+const handleDelete = async e => {
   // delete the current item
-  e.target.parentElement.closest("li").remove();
-  toastMessage("Item Deleted!", "error");
+  const thisItem = e.target.parentElement.closest("li");
+
+  const error = await deleteItem(thisItem.dataset.itemid);
+  if (error) {
+    toastMessage("Error : Can't delete this item", "error");
+    return;
+  }
+  thisItem.remove();
+  toastMessage("Item Deleted!", "success");
   updateStoredList();
 };
 
@@ -23,12 +35,18 @@ export const deleteButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                           The Check (done) button                          */
 /* -------------------------------------------------------------------------- */
-const handleChecked = e => {
+const handleChecked = async e => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
   // dont allow check if we are also editing this item
   if (document.querySelector(".edit-input")) return;
+
+  const error = await toggleItemBought(listItem.dataset.itemid);
+  if (error) {
+    toastMessage(`Error : ${error.message}`);
+    return;
+  }
 
   listItem.classList.toggle("item-completed");
   if (listItem.classList.contains("item-completed")) {
@@ -36,7 +54,6 @@ const handleChecked = e => {
   } else {
     document.getElementById("list-root").prepend(listItem);
   }
-  updateStoredList();
 };
 
 export const checkButton = () => {
@@ -82,34 +99,48 @@ export const editButton = () => {
 /* -------------------------------------------------------------------------- */
 /*                             Edit submit button                             */
 /* -------------------------------------------------------------------------- */
-const handleApplyEdit = e => {
+const handleSubmitEdit = async e => {
   const acceptButton = e.target.parentElement.closest(".edit-accept");
+  const thisItemId = e.target.parentElement.closest("li").dataset.itemid;
 
   const editField = e.target.parentElement
     .closest("div")
     .previousElementSibling.querySelector(".edit-input");
+  const newName = editField.value;
 
-  if (editField.value === "") return;
+  if (newName === "") return;
 
   const textContent = document.createElement("span");
   textContent.classList = "item-text";
-  textContent.append(document.createTextNode(editField.value));
+  textContent.append(document.createTextNode(newName));
+
+  const error = await editItemName(thisItemId, newName);
+  if (error) {
+    toastMessage(`Error: ${error.message}`);
+    return;
+  }
 
   editField.replaceWith(textContent);
   toastMessage("Item Updated.", "success");
-
-  updateStoredList();
 
   // now replace the apply button with an edit button for next time
   acceptButton.replaceWith(editButton());
 };
 
-const handleEnterPressedOnEdit = e => {
+const handleEnterPressedOnEdit = async e => {
   if (e.target.value === "") return;
 
   const textContent = document.createElement("span");
+  const thisItemId = e.target.parentElement.closest("li").dataset.itemid;
+
   textContent.classList = "item-text";
   textContent.append(document.createTextNode(e.target.value));
+
+  const error = await editItemName(thisItemId, e.target.value);
+  if (error) {
+    toastMessage(`Error: ${error.message}`);
+    return;
+  }
 
   const acceptButton = e.target.parentElement
     .closest("div")
@@ -117,15 +148,13 @@ const handleEnterPressedOnEdit = e => {
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
   toastMessage("Item Updated.", "success");
-
-  updateStoredList();
 };
 
 const applyEditButton = () => {
   const button = document.createElement("span");
   button.innerHTML = "<i class='fa-regular fa-check'></i>";
   button.className = "edit-accept";
-  button.addEventListener("click", handleApplyEdit);
+  button.addEventListener("click", handleSubmitEdit);
 
   return button;
 };

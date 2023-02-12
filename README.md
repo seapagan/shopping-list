@@ -3,8 +3,7 @@
 [![CodeQL](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml) [![Dependency
 Review](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/626644b9-1b8d-4936-821d-b02784fd765e/deploy-status)](https://app.netlify.com/sites/sp-shopping/deploys)
 
-A web-based Shopping List written in plain-vanilla JavaScript. Currently this is
-in a seriously **alpha stage**, with incomplete styling.
+A web-based Shopping List written in plain-vanilla JavaScript.
 
 This application is to teach myself "plain" JavaScript as opposed to using a
 library like `React` or similar. Also, I always forget to take my shopping list
@@ -14,6 +13,9 @@ This app uses [Webpack](https://webpack.js.org/) to provide a hot-reload
 development server and an optimised Production bundle. This is configured and
 controlled using my [SPBuild](https://github.com/seapagan/sp-build) system which
 can handle JS/TS, CSS/SCSS and much more automatically.
+
+User Authentication and Authorization plus the Database storage uses
+[Supabase](https://supabase.com)
 
 For development purposes, you can pre-seed the list with 5 items by adding an
 item 'test' to the list.
@@ -31,11 +33,14 @@ I'll look at replacing this with a free solution when the app is completed.**
   toggled again, it is moved back to the main list.
 - Edit an item name inline.
 - Save current items to LocalStorage so they persist between sessions.
-- Drag and drop ordering of items, even between lists. Fixed to work on iOS
+- Drag and drop ordering of items, even between lists. ~~Fixed to work on iOS
   devices using a polyfill from [Bernardo
-  Castilho](https://github.com/Bernardo-Castilho/dragdroptouch)
+  Castilho](https://github.com/Bernardo-Castilho/dragdroptouch)~~ [Polyfill
+  temporarily removed as it was causing several issues on iOS]
 - Light/Dark mode toggle
 - Responsive Design
+- User authentication & authorization implemented. Each user has their own list.
+- Each list is stored in an online postgresql database.
 
 ## Functionality Planned
 
@@ -44,22 +49,15 @@ I'll look at replacing this with a free solution when the app is completed.**
   pack, box, pallet etc).
 - Add comment to an item.
 - add item to category - ie Fresh, Frozen, Bakery etc.
-- implement User login system, each with their own list(s) - use Firebase Auth
-  for this? (that would enable login with google/facebook etc.)
-- Store items using Firebase or similar noSQL system.
 - Group items by Shop.
 - Remember previous items and shops for later input.
 - Save the entire list as a favourite, ability to load from saved favourites
   overwriting any current list.
-- add a toaster-notification system for add/complete/delete/errors etc. Try
-  write from scratch.
 
 ## Other TODO
 
 - `Escape` key to cancel editing List, perhaps also `blur` event which is better
   for mobile.
-- possibly replace LocalStorage with IndexedDB to allow async. Probably won't
-  speed up this app much but would be a decent learning experience.
 - implement accordian drop-downs for each list.
 
 ## Development
@@ -67,6 +65,10 @@ I'll look at replacing this with a free solution when the app is completed.**
 Development needs [Node.JS](https://nodejs.org/) to be installed and optionally
 [yarn](https://yarnpkg.com/). **These are NOT needed for production once the
 optimized bundle is created.**
+
+You will also need to sign up for a [Supabase](https://supabase.com) account,
+then update the `.env` file with your **SUPABASE_KEY** and **SUPABASE_URL**.
+Further instructions for using Supabase in local development are `TODO`
 
 1) Fork or Checkout this repository then change into that directory.
 2) Install dependencies using `npm install` or `yarn install`
