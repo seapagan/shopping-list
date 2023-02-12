@@ -36,7 +36,8 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Drag and drop ordering of items, even between lists. ~~Fixed to work on iOS
   devices using a polyfill from [Bernardo
   Castilho](https://github.com/Bernardo-Castilho/dragdroptouch)~~ [Polyfill
-  temporarily removed as it was causing several issues on iOS]
+  temporarily removed as it was causing several issues on iOS]. _Note that for
+  the moment, the drag sort order will not be saved and is lost on refresh._
 - Light/Dark mode toggle
 - Responsive Design
 - User authentication & authorization implemented. Each user has their own list.
