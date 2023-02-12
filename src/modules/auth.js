@@ -25,7 +25,7 @@ const handleSubmitButton = async e => {
       password: password,
     });
     if (error) {
-      toastMessage(error.message, "error");
+      toastMessage(`Error: ${error.message}`, "error");
       return;
     }
     toastMessage("Logged in Successfully", "success");
