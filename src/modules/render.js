@@ -181,7 +181,7 @@ const handleDeleteList = e => {
       item.remove();
     });
 
-  toastMessage("List Cleared.", "error");
+  toastMessage("List Cleared.", "success");
   updateStoredList();
 };
 
