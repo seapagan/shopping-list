@@ -1,7 +1,6 @@
 /* -------------------------------------------------------------------------- */
 /*             add drag/drop listeners to the existing list items             */
 /* -------------------------------------------------------------------------- */
-// import { updateStoredList } from "./storage.js";
 
 const ITEM_COMPLETED = "item-completed";
 
