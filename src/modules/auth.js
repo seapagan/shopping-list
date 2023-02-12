@@ -95,7 +95,7 @@ export const loginDialog = () => {
   title.innerText = "Login : ";
 
   const username = document.createElement("input");
-  username.type = "text";
+  username.type = "email";
   username.name = "user_input";
   username.placeholder = "Email";
   username.classList.add(AUTH_CLASS);
@@ -121,7 +121,7 @@ export const signupDialog = () => {
   title.innerText = "Sign Up : ";
 
   const username = document.createElement("input");
-  username.type = "text";
+  username.type = "email";
   username.name = "user_input";
   username.placeholder = "Email";
   username.classList.add(AUTH_CLASS);
