@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/seapagan/shopping-list",
   "dependencies": {
-    "@supabase/supabase-js": "^2.2.1"
+    "@supabase/supabase-js": "^2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
