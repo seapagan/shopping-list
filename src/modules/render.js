@@ -64,11 +64,6 @@ export const createListItem = async (itemName, itemId, isBought = false) => {
   const boughtList = document.getElementById("completed-root");
   const textInput = document.getElementById("text-input");
 
-  if (itemName == "") {
-    toastMessage("Can't add an empty item!", "warning");
-    return;
-  }
-
   const newItem = document.createElement("li");
   newItem.classList = "list-item";
 
@@ -240,6 +235,11 @@ const addNewItem = async e => {
     });
 
     toastMessage("Added Test data!", "info");
+    return;
+  }
+
+  if (itemName.trim() === "") {
+    toastMessage("Can't add an empty item!", "warning");
     return;
   }
 
