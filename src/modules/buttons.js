@@ -27,7 +27,7 @@ const handleDelete = async e => {
 export const deleteButton = () => {
   const button = document.createElement("span");
   button.innerHTML = "<i class='fa-regular fa-trash-can'></i>";
-  button.classList = "delete-button hint--top";
+  button.classList = "delete-button hint--top hint--rounded";
   button.setAttribute("aria-label", "Delete item");
   button.addEventListener("click", handleDelete);
 
@@ -61,7 +61,7 @@ const handleChecked = async e => {
 export const checkButton = () => {
   const button = document.createElement("span");
   button.innerHTML = "<i class='fa-solid fa-circle-check'></i>";
-  button.classList = "checked-button hint--top";
+  button.classList = "checked-button hint--top hint--rounded";
   button.setAttribute("aria-label", "Toggle Bought");
   button.addEventListener("click", handleChecked);
 
@@ -93,7 +93,7 @@ const handleEdit = e => {
 export const editButton = () => {
   const button = document.createElement("span");
   button.innerHTML = "<i class='fa-regular fa-pen-to-square'></i>";
-  button.classList = "edit-button hint--top";
+  button.classList = "edit-button hint--top hint--rounded";
   button.setAttribute("aria-label", "Edit item");
   button.addEventListener("click", handleEdit);
 
@@ -157,7 +157,7 @@ const handleEnterPressedOnEdit = async e => {
 const applyEditButton = () => {
   const button = document.createElement("span");
   button.innerHTML = "<i class='fa-regular fa-check'></i>";
-  button.className = "edit-accept hint--top";
+  button.className = "edit-accept hint--top hint--rounded";
   button.setAttribute("aria-label", "Accept");
   button.addEventListener("click", handleSubmitEdit);
 

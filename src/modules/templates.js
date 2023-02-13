@@ -4,11 +4,12 @@ export const header_template = `
       <div id="auth-buttons" class="auth-buttons">
 
       </div>
-      <input
-        type="checkbox"
-        name="toggle"
-        id="toggle"
-        aria-label="Toggle Dark Mode" />
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          aria-label="Toggle Dark Mode"
+        />
     </header>
     `;
 
@@ -20,7 +21,8 @@ export const form_Template = `
         placeholder="Add Item"
         autocomplete="off"
         aria-label="Add an Item" />
-      <button id="new-item" type="submit" aria-label="Add Item">
+      <button class="hint--top hint--rounded"
+        id="new-item" type="submit" aria-label="Add Item">
         <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
       </button>
     </form>`;
@@ -36,16 +38,18 @@ export const no_auth_template = `
 export const fieldset_template = `
     <fieldset>
       <legend>To Buy</legend>
-      <span class="delete-list hint--top" aria-label="Delete this List"
-        ><span class="fa-regular fa-trash-can"></span
-      ></span>
+      <span class="delete-list hint--top hint--rounded"
+        aria-label="Delete this List">
+        <span class="fa-regular fa-trash-can"></span>
+      </span>
       <ul id="list-root"></ul>
     </fieldset>
     <fieldset>
       <legend>Bought</legend>
-      <span class="delete-list hint--top" aria-label="Delete this List"
-        ><span class="fa-regular fa-trash-can"></span
-      ></span>
+      <span class="delete-list hint--top hint--rounded"
+        aria-label="Delete this List">
+        <span class="fa-regular fa-trash-can"></span>
+      </span>
       <ul id="completed-root"></ul>
     </fieldset>`;
 
