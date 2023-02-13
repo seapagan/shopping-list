@@ -41,6 +41,7 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Responsive Design
 - User authentication & authorization implemented. Each user has their own list.
 - Each list is stored in an online postgresql database.
+- Tooltips, using a personally modified version of [hint.css](https://github.com/chinchang/hint.css)
 
 ## Functionality Planned
 

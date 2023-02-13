@@ -4,11 +4,12 @@ export const header_template = `
       <div id="auth-buttons" class="auth-buttons">
 
       </div>
-      <input
-        type="checkbox"
-        name="toggle"
-        id="toggle"
-        aria-label="Toggle Dark Mode" />
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          aria-label="Toggle Dark Mode"
+        />
     </header>
     `;
 
@@ -20,7 +21,8 @@ export const form_Template = `
         placeholder="Add Item"
         autocomplete="off"
         aria-label="Add an Item" />
-      <button id="new-item" type="submit" aria-label="Add Item">
+      <button class="hint--top hint--rounded"
+        id="new-item" type="submit" aria-label="Add Item">
         <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
       </button>
     </form>`;
@@ -36,16 +38,18 @@ export const no_auth_template = `
 export const fieldset_template = `
     <fieldset>
       <legend>To Buy</legend>
-      <span class="delete-list"
-        ><span class="fa-regular fa-trash-can"></span
-      ></span>
+      <span class="delete-list hint--top hint--rounded"
+        aria-label="Delete this List">
+        <span class="fa-regular fa-trash-can"></span>
+      </span>
       <ul id="list-root"></ul>
     </fieldset>
     <fieldset>
       <legend>Bought</legend>
-      <span class="delete-list"
-        ><span class="fa-regular fa-trash-can"></span
-      ></span>
+      <span class="delete-list hint--top hint--rounded"
+        aria-label="Delete this List">
+        <span class="fa-regular fa-trash-can"></span>
+      </span>
       <ul id="completed-root"></ul>
     </fieldset>`;
 
@@ -64,18 +68,21 @@ export const footer_template = `
 `;
 
 export const signInUpButton = `
-    <a id="signup" href="#" aria-label="Sign Up">
+    <a class="hint--bottom hint--rounded"
+      id="signup" href="#" aria-label="Sign Up">
       <i class="fa-regular fa-user-plus" aria-hidden="true"></i>
       <span class="visible-hidden">Sign Up</span>
     </a>
-    <a id="login" href="#" aria-label="Login">
+    <a class="hint--bottom hint--rounded"
+      id="login" href="#" aria-label="Login">
       <i class="fa-regular fa-sign-in" aria-hidden="true"></i>
       <span class="visible-hidden">Login</span>
     </a>
   `;
 
 export const signOutButton = `
-    <a id="signout" href="#" aria-label="Sign Out">
+    <a class="hint--bottom hint--rounded"
+      id="signout" href="#" aria-label="Sign Out">
       <i class="fa-regular fa-sign-out" aria-hidden="true"></i>
       <span class="visible-hidden">Sign Out</span>
     </a>
