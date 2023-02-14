@@ -27,7 +27,7 @@ import {
 import { setupToaster, toastMessage } from "./toaster";
 
 import "../styles/site.scss";
-import "../styles/hint.css";
+import "../styles/vendor/hint.css";
 
 /* -------------------------------------------------------------------------- */
 /*         set up a MutationObserver to hide/show the individual lists        */
