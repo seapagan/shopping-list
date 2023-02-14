@@ -76,6 +76,10 @@ const handleEdit = e => {
     .closest("div")
     .previousElementSibling.querySelector(".item-text");
   const editButton = e.target.parentElement.closest(".edit-button");
+  const thisListItem = e.target.closest("li");
+
+  // disable drag / drop while editing (allows text select)
+  thisListItem.setAttribute("draggable", false);
 
   const inputField = document.createElement("input");
   inputField.value = itemText.innerText;
@@ -105,7 +109,8 @@ export const editButton = () => {
 /* -------------------------------------------------------------------------- */
 const handleSubmitEdit = async e => {
   const acceptButton = e.target.parentElement.closest(".edit-accept");
-  const thisItemId = e.target.parentElement.closest("li").dataset.itemid;
+  const thisListItem = e.target.closest("li");
+  const thisItemId = thisListItem.dataset.itemid;
 
   const editField = e.target.parentElement
     .closest("div")
@@ -127,6 +132,9 @@ const handleSubmitEdit = async e => {
   editField.replaceWith(textContent);
   toastMessage("Item Updated.", "success");
 
+  // enable drag / drop again for this item
+  thisListItem.setAttribute("draggable", true);
+
   // now replace the apply button with an edit button for next time
   acceptButton.replaceWith(editButton());
 };
@@ -135,7 +143,8 @@ const handleEnterPressedOnEdit = async e => {
   if (e.target.value === "") return;
 
   const textContent = document.createElement("span");
-  const thisItemId = e.target.parentElement.closest("li").dataset.itemid;
+  const thisListItem = e.target.closest("li");
+  const thisItemId = thisListItem.dataset.itemid;
 
   textContent.classList = "item-text";
   textContent.append(document.createTextNode(e.target.value));
@@ -152,6 +161,9 @@ const handleEnterPressedOnEdit = async e => {
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
   toastMessage("Item Updated.", "success");
+
+  // enable drag / drop again for this item
+  thisListItem.setAttribute("draggable", true);
 };
 
 const applyEditButton = () => {
