@@ -143,7 +143,8 @@ const handleEnterPressedOnEdit = async e => {
   if (e.target.value === "") return;
 
   const textContent = document.createElement("span");
-  const thisItemId = e.target.parentElement.closest("li").dataset.itemid;
+  const thisListItem = e.target.closest("li");
+  const thisItemId = thisListItem.dataset.itemid;
 
   textContent.classList = "item-text";
   textContent.append(document.createTextNode(e.target.value));
@@ -160,6 +161,9 @@ const handleEnterPressedOnEdit = async e => {
   acceptButton.replaceWith(editButton());
   e.target.replaceWith(textContent);
   toastMessage("Item Updated.", "success");
+
+  // enable drag / drop again for this item
+  thisListItem.setAttribute("draggable", true);
 };
 
 const applyEditButton = () => {
