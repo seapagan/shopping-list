@@ -7725,10 +7725,10 @@ stylelint@^14.16.1:
     v8-compile-cache "^2.3.0"
     write-file-atomic "^4.0.2"
 
-supabase@^1.36.6:
-  version "1.36.6"
-  resolved "https://registry.yarnpkg.com/supabase/-/supabase-1.36.6.tgz#a77294a51b227ad22ff664824a65b3fa7f391b5c"
-  integrity sha512-f4CxxgnVhVFPbmU4NHprnhpR/iWw0oGHgdsUOt6Ji2pV7ZJvWGYnwdChQ/J616Rgea+45YlpVirpN6x6jizmFw==
+supabase@^1.38.6:
+  version "1.38.6"
+  resolved "https://registry.yarnpkg.com/supabase/-/supabase-1.38.6.tgz#9cf09038bdf38259279f9be3b19bc3759c916cfb"
+  integrity sha512-8k5hvCtfNc9f5d3oljliIDU7/lyo2AAOJogoCwe4tkYDFykSMvBdsySdWRjYvNXAnVM4xHba4C/lYnicYl0Fmg==
   dependencies:
     bin-links "^4.0.1"
     node-fetch "^3.2.10"
