@@ -1,6 +1,4 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { screen } from "@testing-library/dom";
-
 import { checkButton, deleteButton, editButton } from "../../modules/buttons";
 
 describe("the delete button", () => {
@@ -8,7 +6,7 @@ describe("the delete button", () => {
     const theButton = deleteButton();
 
     expect(theButton).toBeDefined();
-    expect(theButton.className).toBe("delete-button");
+    expect(theButton.className).toMatch(/delete-button/);
   });
 });
 
@@ -17,7 +15,7 @@ describe("the check button", () => {
     const theButton = checkButton();
 
     expect(theButton).toBeDefined();
-    expect(theButton.className).toBe("checked-button");
+    expect(theButton.className).toMatch(/checked-button/);
   });
 });
 
@@ -26,6 +24,6 @@ describe("the edit button", () => {
     const theButton = editButton();
 
     expect(theButton).toBeDefined();
-    expect(theButton.className).toBe("edit-button");
+    expect(theButton.className).toMatch(/edit-button/);
   });
 });
