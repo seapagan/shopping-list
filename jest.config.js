@@ -15,6 +15,7 @@ module.exports = {
   collectCoverageFrom: ["src/**/*.[tj]s(x)?"],
   coveragePathIgnorePatterns: ["src/modules/vendor"],
   coverageReporters: ["json", "html", "lcov", "text"],
+  setupFiles: ["dotenv/config"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/setupTests.js"],
   coverageThreshold: {
     global: {
