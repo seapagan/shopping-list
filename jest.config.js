@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   moduleFileExtensions: ["tsx", "ts", "js", "jsx"],
   testMatch: ["**/tests/**/*.test.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
