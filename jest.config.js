@@ -13,7 +13,7 @@ module.exports = {
 
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.[tj]s(x)?"],
-  coveragePathIgnorePatterns: ["src/modules/vendor"],
+  coveragePathIgnorePatterns: ["src/modules/vendor", "src/modules/state.js"],
   coverageReporters: ["json", "html", "lcov", "text"],
   setupFiles: ["dotenv/config"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/setupTests.js"],
