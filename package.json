@@ -31,7 +31,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.54.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
