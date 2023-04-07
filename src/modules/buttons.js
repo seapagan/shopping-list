@@ -41,20 +41,27 @@ const handleChecked = async e => {
   const check = e.target.parentElement.closest("span");
   const listItem = check.parentElement.closest("li");
 
+  const toggleThis = () => {
+    listItem.classList.toggle("item-completed");
+    if (listItem.classList.contains("item-completed")) {
+      document.getElementById("completed-root").prepend(listItem);
+    } else {
+      document.getElementById("list-root").prepend(listItem);
+    }
+  };
+
   // dont allow check if we are also editing this item
   if (document.querySelector(".edit-input")) return;
+
+  // we toggle BEFORE updating the database, this is more responsive for slower
+  // connections (really only noticable in bad cellular areas TBF.)
+  toggleThis();
 
   const error = await toggleItemBought(listItem.dataset.itemid);
   if (error) {
     toastMessage(`Error : ${error.message}`);
-    return;
-  }
-
-  listItem.classList.toggle("item-completed");
-  if (listItem.classList.contains("item-completed")) {
-    document.getElementById("completed-root").prepend(listItem);
-  } else {
-    document.getElementById("list-root").prepend(listItem);
+    // toggle back since it failed.
+    toggleThis();
   }
 };
 
