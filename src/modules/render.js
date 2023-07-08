@@ -282,7 +282,7 @@ const showForm = async session => {
 /* -------------------------------------------------------------------------- */
 /*                         render or re-render the app                        */
 /* -------------------------------------------------------------------------- */
-export const RenderApp = async () => {
+export const renderApp = async () => {
   const thisSession = await getSession();
   const app = document.getElementById("App");
   app.innerHTML =
