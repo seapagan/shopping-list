@@ -44,7 +44,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.19.0",
     "eslint-plugin-testing-library": "^5.10.2",
-    "eslint-webpack-plugin": "^4.0.0",
+    "eslint-webpack-plugin": "^4.0.1",
     "html-validate": "^7.14.0",
     "html-validate-webpack-plugin": "^1.2.1",
     "html-webpack-plugin": "^5.5.0",
