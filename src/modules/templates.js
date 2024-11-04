@@ -23,7 +23,7 @@ export const form_Template = `
         aria-label="Add an Item" />
       <button class="hint--top hint--rounded"
         id="new-item" type="submit" aria-label="Add Item">
-        <i class="fa-solid fa-plus-large" aria-hidden="true"></i>
+        <i class="fa-solid fa-plus" aria-hidden="true"></i>
       </button>
     </form>`;
 
@@ -70,12 +70,12 @@ export const footer_template = `
 export const signInUpButton = `
     <a class="hint--bottom hint--rounded"
       id="signup" href="#" aria-label="Sign Up">
-      <i class="fa-regular fa-user-plus" aria-hidden="true"></i>
+      <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
       <span class="visible-hidden">Sign Up</span>
     </a>
     <a class="hint--bottom hint--rounded"
       id="login" href="#" aria-label="Login">
-      <i class="fa-regular fa-sign-in" aria-hidden="true"></i>
+      <i class="fa-solid fa-sign-in" aria-hidden="true"></i>
       <span class="visible-hidden">Login</span>
     </a>
   `;
@@ -83,7 +83,7 @@ export const signInUpButton = `
 export const signOutButton = `
     <a class="hint--bottom hint--rounded"
       id="signout" href="#" aria-label="Sign Out">
-      <i class="fa-regular fa-sign-out" aria-hidden="true"></i>
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
       <span class="visible-hidden">Sign Out</span>
     </a>
 `;

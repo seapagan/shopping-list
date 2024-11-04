@@ -1,6 +1,6 @@
-@import "partials/reset";
-@import "partials/themes";
-@import "partials/toaster";
+@use "partials/reset";
+@use "partials/themes";
+@use "partials/toaster";
 
 /* ------------------- define global colors and font sizes ------------------ */
 :root {
