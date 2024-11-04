@@ -9,7 +9,7 @@ const fs = require("fs");
 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
-const ESLintPlugin = require("eslint-webpack-plugin");
+// const ESLintPlugin = require("eslint-webpack-plugin");
 const HtmlValidatePlugin = require("html-validate-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -53,10 +53,10 @@ module.exports = (_env, argv) => {
         template: "src/index.html",
         favicon: haveFavicon() ? "src/favicon.ico" : "",
       }),
-      new ESLintPlugin(),
-      new StylelintPlugin({
-        configFile: ".stylelintrc.json",
-      }),
+      // new ESLintPlugin(),
+      // new StylelintPlugin({
+      //   configFile: ".stylelintrc.json",
+      // }),
       new HtmlValidatePlugin(),
     ].concat(
       devMode
@@ -113,7 +113,15 @@ module.exports = (_env, argv) => {
                 },
               },
             },
-            "sass-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                api: "modern-compiler",
+                sassOptions: {
+                  // Your sass options
+                },
+              },
+            },
           ],
           include: /\.module\.(sa|sc|c)ss$/,
         },

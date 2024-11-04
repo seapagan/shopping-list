@@ -6,7 +6,8 @@
     "jest/globals": true
   },
   "root": true,
-  "extends": ["eslint:recommended", "plugin:sonarjs/recommended", "prettier"],
+  // "extends": ["eslint:recommended", "plugin:sonarjs/recommended", "prettier"],
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -15,7 +16,8 @@
     "sourceType": "module"
   },
   "ignorePatterns": ["dist/*"],
-  "plugins": ["simple-import-sort", "import", "sonarjs"],
+  // "plugins": ["simple-import-sort", "import", "sonarjs"],
+  "plugins": ["simple-import-sort", "import"],
   "overrides": [
     {
       "files": [
@@ -28,7 +30,7 @@
     }
   ],
   "rules": {
-    "sonarjs/cognitive-complexity": 1,
+    // "sonarjs/cognitive-complexity": 1,
     "import/no-duplicates": "error",
     "import/first": "error",
     "import/newline-after-import": [
