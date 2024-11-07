@@ -3,6 +3,11 @@
 [![CodeQL](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/codeql.yml) [![Dependency
 Review](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/seapagan/shopping-list/actions/workflows/dependency-review.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/626644b9-1b8d-4936-821d-b02784fd765e/deploy-status)](https://app.netlify.com/sites/sp-shopping/deploys)
 
+> [!IMPORTANT]
+>
+> This app is going through update since I haven't touched in a while, so the
+> README and sime functionality may be out of date.
+
 A web-based Shopping List written in plain-vanilla JavaScript.
 
 This application is to teach myself "plain" JavaScript as opposed to using a
@@ -20,8 +25,11 @@ User Authentication and Authorization plus the Database storage uses
 For development purposes, you can pre-seed the list with 5 items by adding an
 item 'test' to the list.
 
-**Note : This app uses the PRO (Paid) version of FontAwesome icons at the moment.
-I'll look at replacing this with a free solution when the app is completed.**
+> [!NOTE]
+>
+> This app uses the Free version of FontAwesome icons at the moment,
+> which requires you to set up an account. I'll look at replacing this with
+> another solution shortly.
 
 ![screenshot](images/screenshot.png)
 
@@ -41,7 +49,8 @@ I'll look at replacing this with a free solution when the app is completed.**
 - Responsive Design
 - User authentication & authorization implemented. Each user has their own list.
 - Each list is stored in an online postgresql database.
-- Tooltips, using a personally modified version of [hint.css](https://github.com/chinchang/hint.css)
+- Tooltips, using a personally modified version of
+  [hint.css](https://github.com/chinchang/hint.css)
 
 ## Functionality Planned
 
@@ -58,13 +67,14 @@ then update the `.env` file with your **SUPABASE_KEY** and **SUPABASE_URL**.
 Further instructions for using Supabase in local development are `TODO`
 
 1) Fork or Checkout this repository then change into that directory.
-2) Install dependencies using `npm install` or `yarn install`
-3) Run the development server using `npm run dev` or `yarn dev` then access
+2) Install dependencies using `yarn install` (preferred since there is an
+   existing `yarn.lock`) or `npm install`
+3) Run the development server using `yarn dev` or `npm run dev` then access
    <http://localhost:8080> to use the app.
 
 ## Deployment
 
-To create a production minimised version, run `npm prod` (or `yarn prod`
+To create a production minimised version, run `yarn prod` (or `npm prod`
 depending on your preference) from the project root:
 
 This will create an optimised version in the [dist](dist) folder, the contents

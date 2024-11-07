@@ -190,3 +190,4 @@ dist/*
 .env
 coverage
 yarn-error.log
+supabase-local.txt
