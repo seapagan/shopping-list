@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import {
   deleteItem,
   editItemName,
@@ -175,7 +174,7 @@ const handleEnterPressedOnEdit = async e => {
 
 const applyEditButton = () => {
   const button = document.createElement("span");
-  button.innerHTML = "<i class='fa-regular fa-check'></i>";
+  button.innerHTML = "<i class='fa-solid fa-check'></i>";
   button.className = "edit-accept hint--top hint--rounded";
   button.setAttribute("aria-label", "Accept");
   button.addEventListener("click", handleSubmitEdit);
