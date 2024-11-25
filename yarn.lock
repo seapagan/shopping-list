@@ -7290,9 +7290,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-validate@npm:^8.24.2":
-  version: 8.24.2
-  resolution: "html-validate@npm:8.24.2"
+"html-validate@npm:^8.25.1":
+  version: 8.25.1
+  resolution: "html-validate@npm:8.25.1"
   dependencies:
     "@html-validate/stylish": "npm:^4.1.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
@@ -7320,7 +7320,7 @@ __metadata:
       optional: true
   bin:
     html-validate: bin/html-validate.js
-  checksum: 10c0/14ffbf44ab875f8fd85f0196f0c08f04d37416d7e38109d026f97a2d5445a9dfc3ea3d26b414c669ea4b2194d3e713cd4fedb598c7a54498538fc257637bf7e2
+  checksum: 10c0/27bdf9497a7c2bc2f10649a94caa7f3a6b7ec07d06f47d8d91ecbccb4c351a258c7cb552192eebc1f33d736b29b17ee96e4fef74b2d5fdea6aa997fd409006f0
   languageName: node
   linkType: hard
 
@@ -11628,7 +11628,7 @@ __metadata:
     eslint-plugin-sonarjs: "npm:^2.0.4"
     eslint-plugin-testing-library: "npm:^6.4.0"
     eslint-webpack-plugin: "npm:^4.0.0"
-    html-validate: "npm:^8.24.2"
+    html-validate: "npm:^8.25.1"
     html-validate-webpack-plugin: "npm:^1.2.1"
     html-webpack-plugin: "npm:^5.5.0"
     identity-obj-proxy: "npm:^3.0.0"
