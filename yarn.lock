@@ -5458,7 +5458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:4.3.1, deepmerge@npm:^4.2.2":
+"deepmerge@npm:^4.2.2":
   version: 4.3.1
   resolution: "deepmerge@npm:4.3.1"
   checksum: 10c0/e53481aaf1aa2c4082b5342be6b6d8ad9dfe387bc92ce197a66dea08bd4265904a087e75e464f14d1347cf2ac8afe1e4c16b266e0561cc5df29382d3c5f80044
@@ -7290,16 +7290,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-validate@npm:^8.24.2":
-  version: 8.24.2
-  resolution: "html-validate@npm:8.24.2"
+"html-validate@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "html-validate@npm:9.1.0"
   dependencies:
     "@html-validate/stylish": "npm:^4.1.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     ajv: "npm:^8.0.0"
-    deepmerge: "npm:4.3.1"
     glob: "npm:^10.0.0"
-    ignore: "npm:5.3.2"
     kleur: "npm:^4.1.0"
     minimist: "npm:^1.2.0"
     prompts: "npm:^2.0.0"
@@ -7319,8 +7317,8 @@ __metadata:
     vitest:
       optional: true
   bin:
-    html-validate: bin/html-validate.js
-  checksum: 10c0/14ffbf44ab875f8fd85f0196f0c08f04d37416d7e38109d026f97a2d5445a9dfc3ea3d26b414c669ea4b2194d3e713cd4fedb598c7a54498538fc257637bf7e2
+    html-validate: bin/html-validate.mjs
+  checksum: 10c0/e3c54d8ab0d84809f1c479deb0de7c161ac29a748b7e7a9201445fc478a1e887f92ea425d1c957877677f86402e23a6941fdeb4035e93e287520849cdbcc8e72
   languageName: node
   linkType: hard
 
@@ -7523,7 +7521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:5.3.2, ignore@npm:^5.2.0, ignore@npm:^5.3.1":
+"ignore@npm:^5.2.0, ignore@npm:^5.3.1":
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: 10c0/f9f652c957983634ded1e7f02da3b559a0d4cc210fca3792cb67f1b153623c9c42efdc1c4121af171e295444459fc4a9201101fb041b1104a3c000bccb188337
@@ -11628,7 +11626,7 @@ __metadata:
     eslint-plugin-sonarjs: "npm:^2.0.4"
     eslint-plugin-testing-library: "npm:^6.4.0"
     eslint-webpack-plugin: "npm:^4.0.0"
-    html-validate: "npm:^8.24.2"
+    html-validate: "npm:^9.1.0"
     html-validate-webpack-plugin: "npm:^1.2.1"
     html-webpack-plugin: "npm:^5.5.0"
     identity-obj-proxy: "npm:^3.0.0"
