@@ -45,7 +45,7 @@
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-testing-library": "^6.4.0",
     "eslint-webpack-plugin": "^4.0.0",
-    "html-validate": "^8.24.2",
+    "html-validate": "^9.2.0",
     "html-validate-webpack-plugin": "^1.2.1",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
